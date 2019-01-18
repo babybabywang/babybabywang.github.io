@@ -88,7 +88,7 @@
 <meta property="og:description" content="开发人事管理系统">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/01/18/工作-人事管理项目开发/blogHead.jpg">
-<meta property="og:updated_time" content="2019-01-18T09:22:59.159Z">
+<meta property="og:updated_time" content="2019-01-18T12:01:59.506Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="工作-人事管理项目开发">
 <meta name="twitter:description" content="开发人事管理系统">
@@ -361,7 +361,7 @@
       
         <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>&nbsp;&nbsp;&nbsp;&nbsp;这是我的第二份工作的第二个项目，相比于第一个安全响应项目。这个项目是针对公司内部使用的人事管理系统。主要包含数据的导入和导出，已经公司人员的管理和工资记录的管理，另一个就是这个系统基本上都是我来开发的。除了框架是公司的一个同事搭建的，因为考虑到后期该系统会调用第三方接口因此框架设计使用的和公司一样的架子，引入公司封装好的一些启动器，关闭eureka注册中心后我就开始工作了，说是架子是公司同事搭建的其实本质的技术还是我来进行选择的。</p>
 <h3 id="技术选型"><a href="#技术选型" class="headerlink" title="技术选型"></a>技术选型</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SpringBoot+Mybatis-plus+Mybatis代码生成器+POI+SpringCloud+OpenFeign+swagger2+公司的一些工具类和异常处理等</span><br></pre></td></tr></table></figure>
-<h3 id="开发前期"><a href="#开发前期" class="headerlink" title="开发前期"></a>开发前期</h3><p>&nbsp;&nbsp;&nbsp;&nbsp; 引入需求很简单这样我就需要先考虑系统的优化，考虑到并发小因此选择使用version字段来实现乐观锁，使用mybatis-plus的乐观锁插件来控制接口的幂等性，从而解决防止同一人操作同一条数据带来的脏数据问题。对于一些工资计算算法进行封装工具类，创建常用的策略模式,这些做完后基本上就可以开始开发了。</p>
+<h3 id="开发前期"><a href="#开发前期" class="headerlink" title="开发前期"></a>开发前期</h3><p>&nbsp;&nbsp;&nbsp;&nbsp; 因为需求很简单这样我就需要先考虑系统的优化，考虑到并发小因此选择使用version字段来实现乐观锁，使用mybatis-plus的乐观锁插件来控制接口的幂等性，从而解决防止同一人操作同一条数据带来的脏数据问题。对于一些工资计算算法进行封装工具类，创建常用的策略模式,这些做完后基本上就可以开始开发了。</p>
 <h3 id="感受"><a href="#感受" class="headerlink" title="感受"></a>感受</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;这是我第二次开发前后端分离的项目，关于前后端分离对我来说是便捷的，起码我不需要去考虑前后端数据的交互<br>了，但是这对刚刚进入工作不久的我不是个好事，因此在空闲时间我还是需要去研究前端学习一些前端的框架，保持自己的竞争力。<br><br><img src="/2019/01/18/工作-人事管理项目开发/blogHead.jpg" alt="乐观"></p>
 
       
