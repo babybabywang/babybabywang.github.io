@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="-maven -nexus -docker,">
 
 
 
@@ -79,16 +79,25 @@
 
 
 
-<meta name="description" content="一个平凡的JAVA后端攻城狮，一直在专研SpringCloud全家桶、Docker等技术，希望遇到更多志同道合的朋友。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="babybabywang">
-<meta property="og:url" content="https://www.babywang.huangsm.xyz/archives/2019/index.html">
+<meta name="description" content="使用docker配置maven私服😊">
+<meta name="keywords" content="-maven -nexus -docker">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Docker部署maven私服">
+<meta property="og:url" content="https://www.babywang.huangsm.xyz/2019/01/18/使用Docker部署maven私服/index.html">
 <meta property="og:site_name" content="babybabywang">
-<meta property="og:description" content="一个平凡的JAVA后端攻城狮，一直在专研SpringCloud全家桶、Docker等技术，希望遇到更多志同道合的朋友。">
+<meta property="og:description" content="使用docker配置maven私服😊">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/01/18/使用Docker部署maven私服/docker-env.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/01/18/使用Docker部署maven私服/nexus-pull.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/01/18/使用Docker部署maven私服/nexus-login.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/01/18/使用Docker部署maven私服/nexusupdate.jpg">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/01/18/使用Docker部署maven私服/20180307192826615.jpg">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/01/18/使用Docker部署maven私服/nexus-cha.png">
+<meta property="og:updated_time" content="2019-01-18T13:52:32.334Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="babybabywang">
-<meta name="twitter:description" content="一个平凡的JAVA后端攻城狮，一直在专研SpringCloud全家桶、Docker等技术，希望遇到更多志同道合的朋友。">
+<meta name="twitter:title" content="使用Docker部署maven私服">
+<meta name="twitter:description" content="使用docker配置maven私服😊">
+<meta name="twitter:image" content="https://www.babywang.huangsm.xyz/2019/01/18/使用Docker部署maven私服/docker-env.png">
 
 
 
@@ -118,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="https://www.babywang.huangsm.xyz/archives/2019/">
+  <link rel="canonical" href="https://www.babywang.huangsm.xyz/2019/01/18/使用Docker部署maven私服/">
 
 
 
 
 
-  <title>归档 | babybabywang</title>
+  <title>使用Docker部署maven私服 | babybabywang</title>
   
 
 
@@ -143,7 +152,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 		<a href="https://github.com/babybabywang" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
 
@@ -248,212 +257,229 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.babywang.huangsm.xyz/2019/01/18/使用Docker部署maven私服/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Huangsm">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blogHead.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="babybabywang">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">使用Docker部署maven私服</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-18T21:21:22+08:00">
+                2019-01-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 5 篇日志。 继续努力。
-      </span>
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/maven私服/" itemprop="url" rel="index">
+                    <span itemprop="name">maven私服</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/01/18/使用Docker部署maven私服/" itemprop="url">
-              
-                <span itemprop="name">使用Docker部署maven私服</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-01-18T21:21:22+08:00" content="2019-01-18">
-          01-18
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
+              <div class="post-description">
+                  使用docker配置maven私服😊
+              </div>
+          
 
+        </div>
+      </header>
+    
 
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/01/18/Ribbon-Feign扩展/" itemprop="url">
-              
-                <span itemprop="name">Ribbon+Feign扩展</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-01-18T18:03:05+08:00" content="2019-01-18">
-          01-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/01/18/工作-人事管理项目开发/" itemprop="url">
-              
-                <span itemprop="name">工作-人事管理项目开发</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-01-18T13:44:02+08:00" content="2019-01-18">
-          01-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <h1 id="使用docker配置maven私服"><a href="#使用docker配置maven私服" class="headerlink" title="使用docker配置maven私服"></a>使用docker配置maven私服</h1><h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><blockquote>
+<p>安装docker环境<br>使用docker -v查看服务器docker环境<br><img src="/2019/01/18/使用Docker部署maven私服/docker-env.png" alt="docker环境"></p>
+</blockquote>
+<h3 id="下拉nexus3镜像"><a href="#下拉nexus3镜像" class="headerlink" title="下拉nexus3镜像"></a>下拉nexus3镜像</h3><p><em>使用命令，拉去最新版本的nexus镜像</em></p>
+<blockquote>
+<p>docker pull sonatype/nexus3<br><img src="/2019/01/18/使用Docker部署maven私服/nexus-pull.png" alt="拉去nexus镜像"></p>
+</blockquote>
+<h3 id="启动镜像"><a href="#启动镜像" class="headerlink" title="启动镜像"></a>启动镜像</h3><p><em>使用命令</em></p>
+<blockquote>
+<p>docker run –rm -d –privileged=true -p 8088:8088 –name nexus -v /root/nexus-data:/var/nexus-data sonatype/nexus3</p>
+</blockquote>
+<pre><code>上面命令是指使用nexus3镜像创建并启动一个容器，然后指定暴露8081端口到对应主机的8081端口
+将容器内部/var/nexus-data挂载到主机/root/nexus-data目录。
+如果没有任何问题的话，Nexus应该是搭建成功了。
+此时在浏览器输入：http://ip:8081即可看到以下页面：(ip为远程主机的ip地址) 
+</code></pre><p><img src="/2019/01/18/使用Docker部署maven私服/nexus-login.png" alt="登录nexus"><br><em>修改nexus帐号密码</em></p>
+<blockquote>
+<p>点击右上方的Sign in进行登录，初始账号密码为admin/admin123.请登录后修改密码<br><em>如下图</em><br><img src="/2019/01/18/使用Docker部署maven私服/nexusupdate.jpg" alt="修改密码"><br>可以看到默认情况下Nexus会帮我们创建了几个仓库，仔细观察红色框住的地方，里面有几种仓库的类型，解释如下：</p>
+</blockquote>
+<ol>
+<li>proxy 远程仓库的代理，比如说nexus配置了一个central repository的proxy,当用户向这个proxy请求一个</li>
+<li>artifact的时候，会现在本地查找，如果找不到，则会从远程仓库下载，然后返回给用户。</li>
+<li>hosted 宿主仓库，用户可以把自己的一些仓库deploy到这个仓库中</li>
+<li>group 仓库组，是nexus特有的概念，目的是将多个仓库整合，对用户暴露统一的地址，这样就不需要配置多个仓库地址。<blockquote>
+<p>下面我们仔细看一下里面的一些仓库。点击maven-central仓库:<br><img src="/2019/01/18/使用Docker部署maven私服/20180307192826615.jpg" alt="仓库"><br>可以看到是一个proxy类型的仓库，他代理的远程仓库地址是<a href="https://repo1.maven.org/maven2/。" target="_blank" rel="noopener">https://repo1.maven.org/maven2/。</a><br><br>后退，在进入maven-public查看:<br><img src="/2019/01/18/使用Docker部署maven私服/nexus-cha.png" alt="pubilc"><br><strong>可以看到这是一个group类型的仓库，里面包含了maven-releases/maven-snapshots/maven-central仓库，意思是我们只需要在本地添加这个仓库，则可以依赖到上述3个仓库中的库了。</strong></p>
+</blockquote>
+</li>
+</ol>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/01/17/技术图谱/" itemprop="url">
-              
-                <span itemprop="name">技术图谱</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-01-17T20:53:29+08:00" content="2019-01-17">
-          01-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/01/17/SB框架-SpringBoot中对多个配置文件中的属性进行提取的简易方法/" itemprop="url">
-              
-                <span itemprop="name">[SB框架]SpringBoot中对多个配置文件中的属性进行提取的简易方法</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-01-17T18:09:20+08:00" content="2019-01-17">
-          01-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/wx.jpg" alt="Huangsm 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/zfb.jpg" alt="Huangsm 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/maven-nexus-docker/" rel="tag"><i class="fa fa-tag"></i> -maven -nexus -docker</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/18/Ribbon-Feign扩展/" rel="next" title="Ribbon+Feign扩展">
+                <i class="fa fa-chevron-left"></i> Ribbon+Feign扩展
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -461,6 +487,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -481,8 +511,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -584,6 +623,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#使用docker配置maven私服"><span class="nav-number">1.</span> <span class="nav-text">使用docker配置maven私服</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#环境准备"><span class="nav-number">1.0.1.</span> <span class="nav-text">环境准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下拉nexus3镜像"><span class="nav-number">1.0.2.</span> <span class="nav-text">下拉nexus3镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动镜像"><span class="nav-number">1.0.3.</span> <span class="nav-text">启动镜像</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -724,6 +779,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
