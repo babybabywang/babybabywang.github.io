@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="maven,nexus,docker,">
+  <meta name="keywords" content="RateLimiter,限流,自定义注解,">
 
 
 
@@ -79,25 +79,25 @@
 
 
 
-<meta name="description" content="使用docker配置maven私服😊">
-<meta name="keywords" content="maven,nexus,docker">
+<meta name="description" content="使用注解+RateLimiter实现服务的限流">
+<meta name="keywords" content="RateLimiter,限流,自定义注解">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用Docker部署maven私服">
-<meta property="og:url" content="https://www.babywang.huangsm.xyz/2019/01/18/使用Docker部署maven私服/index.html">
+<meta property="og:title" content="RateLimiter配合注解的使用">
+<meta property="og:url" content="https://www.babywang.huangsm.xyz/2019/01/19/RateLimiter配合注解的使用/index.html">
 <meta property="og:site_name" content="babybabywang">
-<meta property="og:description" content="使用docker配置maven私服😊">
+<meta property="og:description" content="使用注解+RateLimiter实现服务的限流">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/01/18/使用Docker部署maven私服/docker-env.png">
-<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/01/18/使用Docker部署maven私服/nexus-pull.png">
-<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/01/18/使用Docker部署maven私服/nexus-login.png">
-<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/01/18/使用Docker部署maven私服/nexusupdate.jpg">
-<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/01/18/使用Docker部署maven私服/20180307192826615.jpg">
-<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/01/18/使用Docker部署maven私服/nexus-cha.png">
-<meta property="og:updated_time" content="2019-01-18T13:59:26.605Z">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/01/19/RateLimiter配合注解的使用/令牌桶算法.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/01/19/RateLimiter配合注解的使用/JMeter线程组参数.jpg">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/01/19/RateLimiter配合注解的使用/HTTP请求参数.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/01/19/RateLimiter配合注解的使用/结果树.jpg">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/01/19/RateLimiter配合注解的使用/调用成功结果.jpg">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/01/19/RateLimiter配合注解的使用/限流请求结果.jpg">
+<meta property="og:updated_time" content="2019-01-19T06:41:33.442Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用Docker部署maven私服">
-<meta name="twitter:description" content="使用docker配置maven私服😊">
-<meta name="twitter:image" content="https://www.babywang.huangsm.xyz/2019/01/18/使用Docker部署maven私服/docker-env.png">
+<meta name="twitter:title" content="RateLimiter配合注解的使用">
+<meta name="twitter:description" content="使用注解+RateLimiter实现服务的限流">
+<meta name="twitter:image" content="https://www.babywang.huangsm.xyz/2019/01/19/RateLimiter配合注解的使用/令牌桶算法.png">
 
 
 
@@ -127,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="https://www.babywang.huangsm.xyz/2019/01/18/使用Docker部署maven私服/">
+  <link rel="canonical" href="https://www.babywang.huangsm.xyz/2019/01/19/RateLimiter配合注解的使用/">
 
 
 
 
 
-  <title>使用Docker部署maven私服 | babybabywang</title>
+  <title>RateLimiter配合注解的使用 | babybabywang</title>
   
 
 
@@ -271,7 +271,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.babywang.huangsm.xyz/2019/01/18/使用Docker部署maven私服/">
+    <link itemprop="mainEntityOfPage" href="https://www.babywang.huangsm.xyz/2019/01/19/RateLimiter配合注解的使用/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Huangsm">
@@ -288,7 +288,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">使用Docker部署maven私服</h1>
+          <h1 class="post-title" itemprop="name headline">RateLimiter配合注解的使用</h1>
         
 
         <div class="post-meta">
@@ -300,8 +300,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-18T21:21:22+08:00">
-                2019-01-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-19T12:10:57+08:00">
+                2019-01-19
               </time>
             
 
@@ -323,8 +323,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/maven私服/" itemprop="url" rel="index">
-                    <span itemprop="name">maven私服</span>
+                  <a href="/categories/RateLimiter/" itemprop="url" rel="index">
+                    <span itemprop="name">RateLimiter</span>
                   </a>
                 </span>
 
@@ -347,7 +347,7 @@
 
           
               <div class="post-description">
-                  使用docker配置maven私服😊
+                  使用注解+RateLimiter实现服务的限流
               </div>
           
 
@@ -364,35 +364,155 @@
       
 
       
-        <h1 id="使用docker配置maven私服"><a href="#使用docker配置maven私服" class="headerlink" title="使用docker配置maven私服"></a>使用docker配置maven私服</h1><h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><blockquote>
-<p>安装docker环境<br>使用docker -v查看服务器docker环境<br><img src="/2019/01/18/使用Docker部署maven私服/docker-env.png" alt="docker环境"></p>
+        <h1 id="首先我们来了解下什么是RateLimiter"><a href="#首先我们来了解下什么是RateLimiter" class="headerlink" title="首先我们来了解下什么是RateLimiter"></a>首先我们来了解下什么是RateLimiter</h1><blockquote>
+<p>RateLimiter 从概念上来讲，速率限制器会在可配置的速率下分配许可证。如果必要的话，每个acquire() 会阻塞当前线程直到许可证可用后获<br>取该许可证。一旦获取到许可证，不需要再释放许可证。<br><br><br><em>校对注：RateLimiter使用的是一种叫令牌桶的流控算法，RateLimiter会按照一定的频率往桶里扔令牌，线程拿到令牌才能执行，比如你希望自己的应用程序QPS不要超过1000，那么RateLimiter设置1000的速率后，就会每秒往桶里扔1000个令牌。</em><br><br><br><img src="/2019/01/19/RateLimiter配合注解的使用/令牌桶算法.png" alt="令牌桶算法"><br><br><br>    RateLimiter经常用于限制对一些物理资源或者逻辑资源的访问速率。与Semaphore 相比，Semaphore 限制了并发访问的数量而不是使用速率。（注意尽管并发性和速率是紧密相关的，比如参考Little定律）</p>
 </blockquote>
-<h3 id="下拉nexus3镜像"><a href="#下拉nexus3镜像" class="headerlink" title="下拉nexus3镜像"></a>下拉nexus3镜像</h3><p><em>使用命令，拉去最新版本的nexus镜像</em></p>
 <blockquote>
-<p>docker pull sonatype/nexus3<br><img src="/2019/01/18/使用Docker部署maven私服/nexus-pull.png" alt="拉去nexus镜像"></p>
+<p>通过设置许可证的速率来定义RateLimiter。在默认配置下，许可证会在固定的速率下被分配，速率单位是每秒多少个许可证。为了确保维护配<br>置的速率，许可会被平稳地分配，许可之间的延迟会做调整。<br>可能存在配置一个拥有预热期的RateLimiter 的情况，在这段时间内，每秒分配的许可数会稳定地增长直到达到稳定的速率。<br>举例来说明如何使用RateLimiter，想象下我们需要处理一个任务列表，但我们不希望每秒的任务提交超过两个：</p>
 </blockquote>
-<h3 id="启动镜像"><a href="#启动镜像" class="headerlink" title="启动镜像"></a>启动镜像</h3><p><em>使用命令</em></p>
-<blockquote>
-<p>docker run –rm -d –privileged=true -p 8088:8088 –name nexus -v /root/nexus-data:/var/nexus-data sonatype/nexus3</p>
-</blockquote>
-<pre><code>上面命令是指使用nexus3镜像创建并启动一个容器，然后指定暴露8081端口到对应主机的8081端口
-将容器内部/var/nexus-data挂载到主机/root/nexus-data目录。
-如果没有任何问题的话，Nexus应该是搭建成功了。
-此时在浏览器输入：http://ip:8081即可看到以下页面：(ip为远程主机的ip地址) 
-</code></pre><p><img src="/2019/01/18/使用Docker部署maven私服/nexus-login.png" alt="登录nexus"><br><em>修改nexus帐号密码</em></p>
-<blockquote>
-<p>点击右上方的Sign in进行登录，初始账号密码为admin/admin123.请登录后修改密码<br><em>如下图</em><br><img src="/2019/01/18/使用Docker部署maven私服/nexusupdate.jpg" alt="修改密码"><br>可以看到默认情况下Nexus会帮我们创建了几个仓库，仔细观察红色框住的地方，里面有几种仓库的类型，解释如下：</p>
-</blockquote>
-<ol>
-<li>proxy 远程仓库的代理，比如说nexus配置了一个central repository的proxy,当用户向这个proxy请求一个</li>
-<li>artifact的时候，会现在本地查找，如果找不到，则会从远程仓库下载，然后返回给用户。</li>
-<li>hosted 宿主仓库，用户可以把自己的一些仓库deploy到这个仓库中</li>
-<li>group 仓库组，是nexus特有的概念，目的是将多个仓库整合，对用户暴露统一的地址，这样就不需要配置多个仓库地址。<blockquote>
-<p>下面我们仔细看一下里面的一些仓库。点击maven-central仓库:<br><img src="/2019/01/18/使用Docker部署maven私服/20180307192826615.jpg" alt="仓库"><br>可以看到是一个proxy类型的仓库，他代理的远程仓库地址是<a href="https://repo1.maven.org/maven2/。" target="_blank" rel="noopener">https://repo1.maven.org/maven2/。</a><br><br>后退，在进入maven-public查看:<br><img src="/2019/01/18/使用Docker部署maven私服/nexus-cha.png" alt="pubilc"><br><strong>可以看到这是一个group类型的仓库，里面包含了maven-releases/maven-snapshots/maven-central仓库，意思是我们只需要在本地添加这个仓库，则可以依赖到上述3个仓库中的库了。</strong></p>
-</blockquote>
+<pre><code>//速率是每秒两个许可
+final RateLimiter rateLimiter = RateLimiter.create(2.0);
+void submitTasks(List tasks, Executor executor) {
+    for (Runnable task : tasks) {
+        rateLimiter.acquire(); // 也许需要等待
+        executor.execute(task);
+   }
+}
+</code></pre><h1 id="进入正题"><a href="#进入正题" class="headerlink" title="进入正题"></a>进入正题</h1><h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><ol>
+<li><p>引入依赖</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;com.google.guava&lt;/groupId&gt;
+    &lt;artifactId&gt;guava&lt;/artifactId&gt;
+    &lt;version&gt;25.1-jre&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;com.alibaba&lt;/groupId&gt;
+    &lt;artifactId&gt;fastjson&lt;/artifactId&gt;
+    &lt;version&gt;1.2.28&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre></li>
+<li><p>创建自定义注解</p>
+<pre><code>import java.lang.annotation.*;
+
+/**
+ * 自定义RateLimiter限流注解
+ * @author huang
+ * @PACKAGE_NAME cn.huangsm.advance.ratelimiter
+ * @PROJECT_NAME advance-code
+ * @date 2019/1/19
+ */
+@Inherited
+@Documented
+@Target({ElementType.METHOD,ElementType.FIELD,ElementType.TYPE})
+@Retention(RetentionPolicy.RUNTIME)
+public @interface RateLimitAspect {
+}
+</code></pre></li>
+<li><p>自定义切面类解析自定义注解</p>
 </li>
 </ol>
+<pre><code>import com.alibaba.fastjson.JSON;
+import com.google.common.util.concurrent.RateLimiter;
+import lombok.extern.slf4j.Slf4j;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+/**
+ * 自定义切面类解析注解
+ *
+ * @author huang
+ * @PACKAGE_NAME cn.huangsm.advance.ratelimiter.aop
+ * @PROJECT_NAME advance-code
+ * @date 2019/1/19
+ */
+@Component
+@Aspect
+@Scope
+@Slf4j
+public class RateLimitAop {
+    @Autowired
+    private HttpServletResponse response;
+    /**
+     * 需要处理一个任务列表，但我们不希望每秒的任务提交超过五个
+     */
+    private RateLimiter rateLimiter = RateLimiter.create(5.0);
+
+    @Pointcut(&quot;@annotation(cn.huangsm.advance.ratelimiter.RateLimitAspect)&quot;)
+    public void rateLimiterPointCut() {
+    }
+
+    ;
+
+    @Around(&quot;rateLimiterPointCut()&quot;)
+    public Object around(ProceedingJoinPoint joinPoint) {
+        /**
+         * 得到令牌
+         */
+        Boolean flag = rateLimiter.tryAcquire();
+        Object obj = null;
+        try {
+            if (flag) {
+                obj = joinPoint.proceed();
+                log.info(&quot;得到令牌!&quot;);
+            } else {
+                String result = JSON.toJSONString(&quot;抱歉，操作过于频繁，请稍等片刻在操作！&quot;);
+                log.info(&quot;未获得令牌!&quot;);
+                output(response, result);
+            }
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+        System.out.println(&quot;是否得到令牌=&quot; + flag + &quot;,参数=&quot; + obj);
+        return obj;
+    }
+
+    public void output(HttpServletResponse response, String msg) throws IOException {
+        response.setContentType(&quot;application/json;charset=UTF-8&quot;);
+        ServletOutputStream outputStream = null;
+        try {
+            outputStream = response.getOutputStream();
+            outputStream.write(msg.getBytes(&quot;UTF-8&quot;));
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            outputStream.flush();
+            outputStream.close();
+        }
+    }
+}
+</code></pre><ol start="4">
+<li>测试Controller类</li>
+</ol>
+<pre><code>/**
+ * 限流测试
+ * @author huang
+ * @PACKAGE_NAME cn.huangsm.advance.ratelimiter
+ * @PROJECT_NAME advance-code
+ * @date 2019/1/19
+ */
+@RestController
+public class TestController {
+    @RateLimitAspect
+    @GetMapping(&quot;/test&quot;)
+    public String test(){
+        return &quot;nihao&quot;;
+    }
+}    
+</code></pre><h3 id="测试阶段"><a href="#测试阶段" class="headerlink" title="测试阶段"></a>测试阶段</h3><blockquote>
+<p>上文中的编码阶段算是结束了，总体来说就是自定义一个限流注解方便以后每次的使用，其实我这里做的还不够细致，如果可以的话可以自定义速率，本例中默认速率为5.0表示：想象下我们需要处理一个任务列表，但我们不希望每秒的任务提交超过五个。</p>
+</blockquote>
+<p><strong>话不多说开始测试</strong><br>首先打开JMeter并发测试工具类，定义好线程组，以及Http请求和结果树，在线程组和HTTP请求中输入必要的参数<br><em>JMeter线程组参数</em><br><br><br><img src="/2019/01/19/RateLimiter配合注解的使用/JMeter线程组参数.jpg" alt="线程组参数"><br><em>HTTP请求参数</em><br><br><br><img src="/2019/01/19/RateLimiter配合注解的使用/HTTP请求参数.png" alt="HTTP参数"><br><br><br><strong>启动测试</strong><br><em>可以看到有10个结果在结果树中</em><br><img src="/2019/01/19/RateLimiter配合注解的使用/结果树.jpg" alt="HTTP参数"><br><br><br><strong>分别查看10个HTTP请求的响应</strong><br><em>调用成功</em><br><img src="/2019/01/19/RateLimiter配合注解的使用/调用成功结果.jpg" alt="HTTP参数"><br><br><br><em>限流请求结果</em><br><img src="/2019/01/19/RateLimiter配合注解的使用/限流请求结果.jpg" alt="HTTP参数"></p>
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><pre><code>不管重试多少次都是10次请求有4次被限制访问，6次成功访问.
+因此我重新设置线程次的参数为20个线程，重新发送请求后得到结果为:6次成功，14次失败，得出结论美妙的认为提交不超过六个。对于为什么是五个而不是六个，在RateLimiter的github看下issue了解。
+</code></pre>
       
     </div>
     
@@ -438,11 +558,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/maven/" rel="tag"><i class="fa fa-tag"></i> maven</a>
+            <a href="/tags/RateLimiter/" rel="tag"><i class="fa fa-tag"></i> RateLimiter</a>
           
-            <a href="/tags/nexus/" rel="tag"><i class="fa fa-tag"></i> nexus</a>
+            <a href="/tags/限流/" rel="tag"><i class="fa fa-tag"></i> 限流</a>
           
-            <a href="/tags/docker/" rel="tag"><i class="fa fa-tag"></i> docker</a>
+            <a href="/tags/自定义注解/" rel="tag"><i class="fa fa-tag"></i> 自定义注解</a>
           
         </div>
       
@@ -455,8 +575,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/18/Ribbon-Feign扩展/" rel="next" title="Ribbon+Feign扩展">
-                <i class="fa fa-chevron-left"></i> Ribbon+Feign扩展
+              <a href="/2019/01/18/使用Docker部署maven私服/" rel="next" title="使用Docker部署maven私服">
+                <i class="fa fa-chevron-left"></i> 使用Docker部署maven私服
               </a>
             
           </div>
@@ -464,10 +584,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/19/RateLimiter配合注解的使用/" rel="prev" title="RateLimiter配合注解的使用">
-                RateLimiter配合注解的使用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -641,7 +757,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#使用docker配置maven私服"><span class="nav-number">1.</span> <span class="nav-text">使用docker配置maven私服</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#环境准备"><span class="nav-number">1.0.1.</span> <span class="nav-text">环境准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下拉nexus3镜像"><span class="nav-number">1.0.2.</span> <span class="nav-text">下拉nexus3镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动镜像"><span class="nav-number">1.0.3.</span> <span class="nav-text">启动镜像</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#首先我们来了解下什么是RateLimiter"><span class="nav-number">1.</span> <span class="nav-text">首先我们来了解下什么是RateLimiter</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#进入正题"><span class="nav-number">2.</span> <span class="nav-text">进入正题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#准备工作"><span class="nav-number">2.0.1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试阶段"><span class="nav-number">2.0.2.</span> <span class="nav-text">测试阶段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结论"><span class="nav-number">2.0.3.</span> <span class="nav-text">结论</span></a></li></ol></li></ol></div>
             
 
           </div>
