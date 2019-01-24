@@ -79,16 +79,19 @@
 
 
 
-<meta name="description" content="一个平凡的JAVA后端攻城狮，一直在专研SpringCloud全家桶、Docker等技术，希望遇到更多志同道合的朋友。">
-<meta property="og:type" content="website">
+<meta name="description" content="title: 使用Logstash同步ElasticSearch与Mysql数据date: 2019-01-24 22:14:04categories: “Logstash”tags:  ElasticSearch Logstash Mysqldescription: 使用Logstash同步ElasticSearch与Mysql数据 ElasticSearch与MYSQL数据库的同步(使用lo">
+<meta property="og:type" content="article">
 <meta property="og:title" content="babybabywang">
-<meta property="og:url" content="https://www.babywang.huangsm.xyz/tags/JAVA操作/index.html">
+<meta property="og:url" content="https://www.babywang.huangsm.xyz/2019/01/24/使用Logstash同步ElasticSearch与Mysql数据/index.html">
 <meta property="og:site_name" content="babybabywang">
-<meta property="og:description" content="一个平凡的JAVA后端攻城狮，一直在专研SpringCloud全家桶、Docker等技术，希望遇到更多志同道合的朋友。">
+<meta property="og:description" content="title: 使用Logstash同步ElasticSearch与Mysql数据date: 2019-01-24 22:14:04categories: “Logstash”tags:  ElasticSearch Logstash Mysqldescription: 使用Logstash同步ElasticSearch与Mysql数据 ElasticSearch与MYSQL数据库的同步(使用lo">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/01/24/使用Logstash同步ElasticSearch与Mysql数据/启动logstash.png">
+<meta property="og:updated_time" content="2019-01-24T14:21:31.366Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="babybabywang">
-<meta name="twitter:description" content="一个平凡的JAVA后端攻城狮，一直在专研SpringCloud全家桶、Docker等技术，希望遇到更多志同道合的朋友。">
+<meta name="twitter:description" content="title: 使用Logstash同步ElasticSearch与Mysql数据date: 2019-01-24 22:14:04categories: “Logstash”tags:  ElasticSearch Logstash Mysqldescription: 使用Logstash同步ElasticSearch与Mysql数据 ElasticSearch与MYSQL数据库的同步(使用lo">
+<meta name="twitter:image" content="https://www.babywang.huangsm.xyz/2019/01/24/使用Logstash同步ElasticSearch与Mysql数据/启动logstash.png">
 
 
 
@@ -118,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="https://www.babywang.huangsm.xyz/tags/JAVA操作/">
+  <link rel="canonical" href="https://www.babywang.huangsm.xyz/2019/01/24/使用Logstash同步ElasticSearch与Mysql数据/">
 
 
 
 
 
-  <title>标签: JAVA操作 | babybabywang</title>
+  <title> | babybabywang</title>
   
 
 
@@ -143,7 +146,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 		<a href="https://github.com/babybabywang" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
 
@@ -248,52 +251,202 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>JAVA操作<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.babywang.huangsm.xyz/2019/01/24/使用Logstash同步ElasticSearch与Mysql数据/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Huangsm">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blogHead.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="babybabywang">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/01/20/MongoDB的基本使用姿势及概念/" itemprop="url">
-              
-                <span itemprop="name">MongoDB的基本使用姿势及概念</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-01-20T21:54:48+08:00" content="2019-01-20">
-          01-20
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-24T22:14:04+08:00">
+                2019-01-24
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<p>title: 使用Logstash同步ElasticSearch与Mysql数据<br>date: 2019-01-24 22:14:04<br>categories: “Logstash”<br>tags:</p>
+<ul>
+<li>ElasticSearch</li>
+<li>Logstash</li>
+<li><p>Mysql<br>description: 使用Logstash同步ElasticSearch与Mysql数据</p>
+<h3 id="ElasticSearch与MYSQL数据库的同步-使用logstash"><a href="#ElasticSearch与MYSQL数据库的同步-使用logstash" class="headerlink" title="ElasticSearch与MYSQL数据库的同步(使用logstash)"></a>ElasticSearch与MYSQL数据库的同步(使用logstash)</h3><ol>
+<li><p>概述</p>
+<p>   Logstash是一款轻量级的日志搜集处理框架，可以方便的把分散的、多样化的日志搜集起来，并进行自定义的理，然后传输<br>   到指定的位置，比如某个服务器或者文件。</p>
+</li>
+</ol>
+</li>
+</ul>
+<ol start="2">
+<li><p>Logstash的安装和测试</p>
+<pre><code>解压，进入bin目录
+logstash ‐e &apos;input { stdin { } } output { stdout {} }&apos;
+控制台输入字符，随后就有日志输出
+
+stdin，表示输入流，指从键盘输入
+
+stdout，表示输出流，指从显示器输出
+
+命令行参数:
+
+-e 执行
+--config 或 -f 配置文件，后跟参数类型可以是一个字符串的配置或全路径文件名或全路径
+(如：/etc/logstash.d/，logstash会自动读取/etc/logstash.d/目录下所有*.conf 的文本文件，
+然后在自己内存里拼接成一个完整的大配置文件再去执行)
+</code></pre><p><img src="/2019/01/24/使用Logstash同步ElasticSearch与Mysql数据/启动logstash.png" alt="日志输出"></p>
+</li>
+<li>MySQL数据导入Elasticsearch</li>
+</ol>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/wx.jpg" alt="Huangsm 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/zfb.jpg" alt="Huangsm 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/23/ElasticSearch基础入门及搜索服务的开发/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -301,6 +454,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -321,8 +478,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -424,6 +590,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ElasticSearch与MYSQL数据库的同步-使用logstash"><span class="nav-number">1.</span> <span class="nav-text">ElasticSearch与MYSQL数据库的同步(使用logstash)</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -564,6 +746,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
