@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="ElasticSearch,Logstash,Mysql,">
 
 
 
@@ -79,18 +79,19 @@
 
 
 
-<meta name="description" content="title: 使用Logstash同步ElasticSearch与Mysql数据date: 2019-01-24 22:14:04categories: “Logstash”tags:  ElasticSearch Logstash Mysqldescription: 使用Logstash同步ElasticSearch与Mysql数据 ElasticSearch与MYSQL数据库的同步(使用lo">
+<meta name="description" content="使用Logstash同步ElasticSearch与Mysql数据">
+<meta name="keywords" content="ElasticSearch,Logstash,Mysql">
 <meta property="og:type" content="article">
-<meta property="og:title" content="babybabywang">
+<meta property="og:title" content="使用Logstash同步ElasticSearch与Mysql数据">
 <meta property="og:url" content="https://www.babywang.huangsm.xyz/2019/01/24/使用Logstash同步ElasticSearch与Mysql数据/index.html">
 <meta property="og:site_name" content="babybabywang">
-<meta property="og:description" content="title: 使用Logstash同步ElasticSearch与Mysql数据date: 2019-01-24 22:14:04categories: “Logstash”tags:  ElasticSearch Logstash Mysqldescription: 使用Logstash同步ElasticSearch与Mysql数据 ElasticSearch与MYSQL数据库的同步(使用lo">
+<meta property="og:description" content="使用Logstash同步ElasticSearch与Mysql数据">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/01/24/使用Logstash同步ElasticSearch与Mysql数据/启动logstash.png">
-<meta property="og:updated_time" content="2019-01-24T14:21:31.366Z">
+<meta property="og:updated_time" content="2019-01-24T14:32:03.050Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="babybabywang">
-<meta name="twitter:description" content="title: 使用Logstash同步ElasticSearch与Mysql数据date: 2019-01-24 22:14:04categories: “Logstash”tags:  ElasticSearch Logstash Mysqldescription: 使用Logstash同步ElasticSearch与Mysql数据 ElasticSearch与MYSQL数据库的同步(使用lo">
+<meta name="twitter:title" content="使用Logstash同步ElasticSearch与Mysql数据">
+<meta name="twitter:description" content="使用Logstash同步ElasticSearch与Mysql数据">
 <meta name="twitter:image" content="https://www.babywang.huangsm.xyz/2019/01/24/使用Logstash同步ElasticSearch与Mysql数据/启动logstash.png">
 
 
@@ -127,7 +128,7 @@
 
 
 
-  <title> | babybabywang</title>
+  <title>使用Logstash同步ElasticSearch与Mysql数据 | babybabywang</title>
   
 
 
@@ -282,7 +283,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">使用Logstash同步ElasticSearch与Mysql数据</h1>
         
 
         <div class="post-meta">
@@ -305,6 +306,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Logstash/" itemprop="url" rel="index">
+                    <span itemprop="name">Logstash</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -317,6 +340,10 @@
 
           
 
+          
+              <div class="post-description">
+                  使用Logstash同步ElasticSearch与Mysql数据
+              </div>
           
 
         </div>
@@ -332,20 +359,11 @@
       
 
       
-        <hr>
-<p>title: 使用Logstash同步ElasticSearch与Mysql数据<br>date: 2019-01-24 22:14:04<br>categories: “Logstash”<br>tags:</p>
-<ul>
-<li>ElasticSearch</li>
-<li>Logstash</li>
-<li><p>Mysql<br>description: 使用Logstash同步ElasticSearch与Mysql数据</p>
-<h3 id="ElasticSearch与MYSQL数据库的同步-使用logstash"><a href="#ElasticSearch与MYSQL数据库的同步-使用logstash" class="headerlink" title="ElasticSearch与MYSQL数据库的同步(使用logstash)"></a>ElasticSearch与MYSQL数据库的同步(使用logstash)</h3><ol>
+        <h3 id="ElasticSearch与MYSQL数据库的同步-使用logstash"><a href="#ElasticSearch与MYSQL数据库的同步-使用logstash" class="headerlink" title="ElasticSearch与MYSQL数据库的同步(使用logstash)"></a>ElasticSearch与MYSQL数据库的同步(使用logstash)</h3><ol>
 <li><p>概述</p>
-<p>   Logstash是一款轻量级的日志搜集处理框架，可以方便的把分散的、多样化的日志搜集起来，并进行自定义的理，然后传输<br>   到指定的位置，比如某个服务器或者文件。</p>
-</li>
-</ol>
-</li>
-</ul>
-<ol start="2">
+<pre><code>Logstash是一款轻量级的日志搜集处理框架，可以方便的把分散的、多样化的日志搜集起来，并进行自定义的理，然后传输
+到指定的位置，比如某个服务器或者文件。
+</code></pre></li>
 <li><p>Logstash的安装和测试</p>
 <pre><code>解压，进入bin目录
 logstash ‐e &apos;input { stdin { } } output { stdout {} }&apos;
@@ -409,6 +427,16 @@ stdout，表示输出流，指从显示器输出
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/ElasticSearch/" rel="tag"><i class="fa fa-tag"></i> ElasticSearch</a>
+          
+            <a href="/tags/Logstash/" rel="tag"><i class="fa fa-tag"></i> Logstash</a>
+          
+            <a href="/tags/Mysql/" rel="tag"><i class="fa fa-tag"></i> Mysql</a>
+          
+        </div>
+      
 
       
       
@@ -418,8 +446,8 @@ stdout，表示输出流，指从显示器输出
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/23/ElasticSearch基础入门及搜索服务的开发/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2019/01/23/ElasticSearch基础入门及搜索服务的开发/" rel="next" title="ElasticSearch基础入门及搜索服务的开发">
+                <i class="fa fa-chevron-left"></i> ElasticSearch基础入门及搜索服务的开发
               </a>
             
           </div>
@@ -516,7 +544,7 @@ stdout，表示输出流，指从显示器输出
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -527,7 +555,7 @@ stdout，表示输出流，指从显示器输出
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
