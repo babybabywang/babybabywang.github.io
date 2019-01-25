@@ -88,7 +88,8 @@
 <meta property="og:description" content="使用Logstash同步ElasticSearch与Mysql数据">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/01/24/使用Logstash同步ElasticSearch与Mysql数据/启动logstash.png">
-<meta property="og:updated_time" content="2019-01-24T14:32:03.050Z">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/01/24/使用Logstash同步ElasticSearch与Mysql数据/同步数据库成功.png">
+<meta property="og:updated_time" content="2019-01-25T12:34:00.648Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Logstash同步ElasticSearch与Mysql数据">
 <meta name="twitter:description" content="使用Logstash同步ElasticSearch与Mysql数据">
@@ -381,7 +382,50 @@ stdout，表示输出流，指从显示器输出
 然后在自己内存里拼接成一个完整的大配置文件再去执行)
 </code></pre><p><img src="/2019/01/24/使用Logstash同步ElasticSearch与Mysql数据/启动logstash.png" alt="日志输出"></p>
 </li>
-<li>MySQL数据导入Elasticsearch</li>
+<li><p>MySQL数据导入Elasticsearch</p>
+<pre><code>第一步:    在logstansh根目录下创建mysqletc(名称任意)目录，目录中创建mysql.conf（名字任意）文件，已经mysql的驱动jar包
+第二步: 编写mysql.conf文件
+input {
+  jdbc {
+      # mysql jdbc connection string to our backup databse
+      jdbc_connection_string =&gt; &quot;jdbc:mysql://47.107.44.169:33061/tensquare_article?characterEncoding=UTF8&quot;
+      # the user we wish to excute our statement as
+      jdbc_user =&gt; &quot;root&quot;
+      jdbc_password =&gt; &quot;123456&quot;
+      # the path to our downloaded jdbc driver  
+      jdbc_driver_library =&gt; &quot;D:\friendprojec\logstash-5.6.8\mysqletc\mysql-connector-java-5.1.46.jar&quot;
+      # the name of the driver class for mysql
+      jdbc_driver_class =&gt; &quot;com.mysql.jdbc.Driver&quot;
+      jdbc_paging_enabled =&gt; &quot;true&quot;
+      jdbc_page_size =&gt; &quot;50&quot;
+      #以下对应着要执行的sql的绝对路径。
+      #statement_filepath =&gt; &quot;&quot;
+      statement =&gt; &quot;SELECT  id,title,content,state FROM tb_article&quot;
+      #定时字段 各字段含义（由左至右）分、时、天、月、年，全部为*默认含义为每分钟都更新（测试结果，不同的话请留言指出）
+      schedule =&gt; &quot;* * * * *&quot;
+  }
+}
+
+output {
+  elasticsearch {
+      #ESIP地址与端口
+      hosts =&gt; &quot;127.0.0.1:9200&quot; 
+      #ES索引名称（自己定义的）
+      index =&gt; &quot;tensquare_article&quot;
+      #自增ID编号
+      document_id =&gt; &quot;%{id}&quot;
+      document_type =&gt; &quot;article&quot;
+  }
+  stdout {
+      #以JSON格式输出
+      codec =&gt; json_lines
+  }
+}
+
+第三步: 启动logstansh，用-f的方式
+logstash -f ../mysqletc/mysql.conf
+</code></pre><p><strong>注意mysql.conf路径为相对路径</strong><br><img src="/2019/01/24/使用Logstash同步ElasticSearch与Mysql数据/同步数据库成功.png" alt="同步数据库成功"><br><br><br><strong>这就是logstansh同步数据库的基础使用，也可以部署logstansh集群配合kafka或redis做到缓存同步效果</strong></p>
+</li>
 </ol>
 
       
@@ -455,6 +499,10 @@ stdout，表示输出流，指从显示器输出
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/25/docker下部署elasticsearch环境/" rel="prev" title="docker下部署elasticsearch环境">
+                docker下部署elasticsearch环境 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -533,7 +581,7 @@ stdout，表示输出流，指从显示器输出
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -544,7 +592,7 @@ stdout，表示输出流，指从显示器输出
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -555,7 +603,7 @@ stdout，表示输出流，指从显示器输出
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

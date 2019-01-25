@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content=",">
+  <meta name="keywords" content="elasticsearch,docker,head,IK,docker系统优化,">
 
 
 
@@ -79,20 +79,22 @@
 
 
 
-<meta name="description" content="AboutME&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;楼主是一个刚刚去实习不到一年的后端狗，在公司没事喜欢研究些SpringCloud全家桶、和Docker以及研究一些开源的项目，对于前端也有独特的兴趣，喜欢研究angluarjs和vue这些前端框架，希望能在技术这条路上结识更多志同道合的朋友们! ContactME😊QQ:1261109615 说唱詩人">
-<meta name="keywords" content="HUANG">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于博主">
-<meta property="og:url" content="https://www.babywang.huangsm.xyz/about/index.html">
+<meta name="description" content="docker环境下部署elasticsearch环境😊">
+<meta name="keywords" content="elasticsearch,docker,head,IK,docker系统优化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="docker下部署elasticsearch环境">
+<meta property="og:url" content="https://www.babywang.huangsm.xyz/2019/01/25/docker下部署elasticsearch环境/index.html">
 <meta property="og:site_name" content="babybabywang">
-<meta property="og:description" content="AboutME&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;楼主是一个刚刚去实习不到一年的后端狗，在公司没事喜欢研究些SpringCloud全家桶、和Docker以及研究一些开源的项目，对于前端也有独特的兴趣，喜欢研究angluarjs和vue这些前端框架，希望能在技术这条路上结识更多志同道合的朋友们! ContactME😊QQ:1261109615 说唱詩人">
+<meta property="og:description" content="docker环境下部署elasticsearch环境😊">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://www.babywang.huangsm.xyz/about/说唱詩人.png">
-<meta property="og:updated_time" content="2019-01-18T01:40:27.846Z">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/01/25/docker下部署elasticsearch环境/es测试.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/01/25/docker下部署elasticsearch环境/es搜索服务启动报错.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/01/25/docker下部署elasticsearch环境/解决docker容器中部署的跨域问题.png">
+<meta property="og:updated_time" content="2019-01-25T14:46:45.957Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于博主">
-<meta name="twitter:description" content="AboutME&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;楼主是一个刚刚去实习不到一年的后端狗，在公司没事喜欢研究些SpringCloud全家桶、和Docker以及研究一些开源的项目，对于前端也有独特的兴趣，喜欢研究angluarjs和vue这些前端框架，希望能在技术这条路上结识更多志同道合的朋友们! ContactME😊QQ:1261109615 说唱詩人">
-<meta name="twitter:image" content="https://www.babywang.huangsm.xyz/about/说唱詩人.png">
+<meta name="twitter:title" content="docker下部署elasticsearch环境">
+<meta name="twitter:description" content="docker环境下部署elasticsearch环境😊">
+<meta name="twitter:image" content="https://www.babywang.huangsm.xyz/2019/01/25/docker下部署elasticsearch环境/es测试.png">
 
 
 
@@ -122,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="https://www.babywang.huangsm.xyz/about/">
+  <link rel="canonical" href="https://www.babywang.huangsm.xyz/2019/01/25/docker下部署elasticsearch环境/">
 
 
 
 
 
-  <title>关于博主 | babybabywang</title>
+  <title>docker下部署elasticsearch环境 | babybabywang</title>
   
 
 
@@ -254,36 +256,289 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.babywang.huangsm.xyz/2019/01/25/docker下部署elasticsearch环境/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Huangsm">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blogHead.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="babybabywang">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">关于博主</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <h3 id="AboutME"><a href="#AboutME" class="headerlink" title="AboutME"></a>AboutME</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;楼主是一个刚刚去实习不到一年的后端狗，在公司没事喜欢研究些SpringCloud全家桶、和Docker以及研究一些开源的项目，对于前端也有独特的兴趣，喜欢研究angluarjs和vue这些前端框架，希望能在技术这条路上结识更多志同道合的朋友们!<br><br></p>
-<h3 id="ContactME"><a href="#ContactME" class="headerlink" title="ContactME"></a>ContactME</h3><p>😊QQ:1261109615<br></p>
-<h3 id="说唱詩人"><a href="#说唱詩人" class="headerlink" title="说唱詩人"></a>说唱詩人</h3><p><img src="/about/说唱詩人.png" alt="jonyj"></p>
-
+          <h1 class="post-title" itemprop="name headline">docker下部署elasticsearch环境</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-25T20:35:08+08:00">
+                2019-01-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/elasticsearch/" itemprop="url" rel="index">
+                    <span itemprop="name">elasticsearch</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  docker环境下部署elasticsearch环境😊
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><ol>
+<li>阿里云服务器</li>
+<li>docker最新版环境</li>
+</ol>
+<h3 id="部署步骤"><a href="#部署步骤" class="headerlink" title="部署步骤"></a>部署步骤</h3><h5 id="容器的创建与远程连接"><a href="#容器的创建与远程连接" class="headerlink" title="容器的创建与远程连接"></a>容器的创建与远程连接</h5><ul>
+<li><p>下载镜像</p>
+<pre><code>docker pull elasticsearch:5.6.8
+</code></pre></li>
+<li><p>创建容器</p>
+<pre><code>docker run -d --name es -p 9200:9200 -p 9300:9300 -e &quot;discovery.type=single-node&quot; 6c0bdf761f3b
+</code></pre><p><strong>如果启动报错，通过docker logs es查看日志，如果错误是</strong></p>
+<pre><code>Java HotSpot(TM) 64-Bit Server VM warning: INFO: 
+os::commit_memory(0x0000000085330000, 2060255232, 0) failed; 
+error=’Cannot allocate memory’ (errno=12)
+</code></pre><p>因为这是由于elasticsearch5.0默认分配jvm空间大小为2g，内存不足以分配导致<br><strong>修改elasticsearch分配的jvm空间</strong></p>
+<pre><code>find /var/lib/docker/overlay2/ -name jvm.options
+vim /var/lib/docker/overlay2/7f59cf980d035aa1f8e5275e4e64eb9ec9a775b0d62bacf94ee3d562b782c136/diff/etc/elasticsearch/jvm.options
+</code></pre><p><strong>最后重新启动即可</strong></p>
+</li>
+<li><p>测试</p>
+<pre><code>输入http://192.168.25.133:9200/
+</code></pre><p><img src="/2019/01/25/docker下部署elasticsearch环境/es测试.png" alt="es测试"></p>
+<pre><code>使用写好的搜索服务，改变elasticsearch服务器地址后启动测试报错:
+</code></pre><p><img src="/2019/01/25/docker下部署elasticsearch环境/es搜索服务启动报错.png" alt="es搜索服务启动报错"></p>
+</li>
+<li><p>进入容器</p>
+<pre><code>一、输入命令
+docker exec es -it /bin/bash
+此时，我们看到elasticsearch所在的目录为/usr/share/elasticsearch,
+进入config看到了配置文件elasticsearch.yml
+我们通过vi命令编辑此文件，尴尬的是容器并没有vi命令 ，咋办？我们需要以文件挂载的
+方式创建容器才行，这样我们就可以通过修改宿主机中的某个文件来实现对容器内配置文件的修改
+
+二、拷贝配置文件到宿主机
+首先退出容器，然后执行命令：
+ docker cp es:/usr/share/elasticsearch/config/elasticsearch.yml /usr/share/elasticsearch.yml
+三、停止和删除原来创建的容器
+docker stop es
+docker rm es
+四、重新执行创建容器命令
+docker run -d --name=es -p 9200:9200 -p 9300:9300 -v /usr/share/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml elasticsearch:5.6.8
+五、修改/usr/share/elasticsearch.yml 
+将 transport.host: 0.0.0.0 前的#去掉后保存文件退出。
+其作用是允许任何ip地址访问elasticsearch开发测试阶段可以这么做，生产环境下指定具体的IP
+</code></pre><p><img src="/2019/01/25/docker下部署elasticsearch环境/解决docker容器中部署的跨域问题.png" alt="解决docker容器中部署的跨域问题"></p>
+</li>
+<li><p>重启启动</p>
+<p>  docker restart es<br><strong>重新启动失败怎么办?</strong></p>
+<pre><code>重启后发现重启启动失败了，这时什么原因呢？这与我们刚才修改的配置有关，因为elasticsearch在启动的时候会进行一些检查，
+比如最多打开的文件的个数以及虚拟内存区域数量等等，如果你放开了此配置，意味着需要打开更多的文件以及虚拟内存，
+所以我们还需要系统调优。
+</code></pre></li>
+<li>系统调优(宿主机问题)</li>
+</ul>
+<p><em>我们一共需要修改两处</em></p>
+<pre><code>第一步:修改/etc/security/limits.conf 配置文件,追加
+* soft nofile 65536
+* hard nofile 655
+nofile是单个进程允许打开的最大文件个数 soft nofile 是软限制 hard nofile是硬限制
+
+第二步:修改/etc/sysctl.conf，追加内容
+vm.max_map_count=655360
+限制一个进程可以拥有的VMA(虚拟内存区域)的数量
+执行下面命令 修改内核参数马上生效
+</code></pre><ul>
+<li>安装IK分词器</li>
+</ul>
+<p>（1）快捷键alt+p进入sftp , 将ik文件夹上传至宿主机</p>
+<pre><code>put -r  D:\friendprojec\elasticsearch-5.6.8\plugins\ik
+</code></pre><p>（2）在宿主机中将ik文件夹拷贝到容器内 /usr/share/elasticsearch/plugins 目录下。</p>
+<pre><code>docker cp ik es:/usr/share/elasticsearch/plugins/
+</code></pre><p>（3）重启容器</p>
+<ul>
+<li>HEAD插件安装</li>
+</ul>
+<p>（1）修改/usr/share/elasticsearch.yml ,添加允许跨域配置</p>
+<pre><code>http.cors.enabled: true
+http.cors.allow‐origin: &quot;*&quot;
+</code></pre><p>（2）重新启动elasticseach容器<br>（3）下载head镜像</p>
+<pre><code>docker pull mobz/elasticsearch‐head:5
+</code></pre><p>（4）创建head容器</p>
+<pre><code>docker run ‐di ‐‐name=myhead ‐p 9100:9100 docker pull mobz/elasticsearch‐head:5
+</code></pre><p><strong>这样我们在docker中部署elasticsearch就完成了</strong></p>
+
       
     </div>
     
     
     
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/wx.jpg" alt="Huangsm 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/zfb.jpg" alt="Huangsm 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/elasticsearch/" rel="tag"><i class="fa fa-tag"></i> elasticsearch</a>
+          
+            <a href="/tags/docker/" rel="tag"><i class="fa fa-tag"></i> docker</a>
+          
+            <a href="/tags/head/" rel="tag"><i class="fa fa-tag"></i> head</a>
+          
+            <a href="/tags/IK/" rel="tag"><i class="fa fa-tag"></i> IK</a>
+          
+            <a href="/tags/docker系统优化/" rel="tag"><i class="fa fa-tag"></i> docker系统优化</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/24/使用Logstash同步ElasticSearch与Mysql数据/" rel="next" title="使用Logstash同步ElasticSearch与Mysql数据">
+                <i class="fa fa-chevron-left"></i> 使用Logstash同步ElasticSearch与Mysql数据
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -438,7 +693,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#AboutME"><span class="nav-number">1.</span> <span class="nav-text">AboutME</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ContactME"><span class="nav-number">2.</span> <span class="nav-text">ContactME</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#说唱詩人"><span class="nav-number">3.</span> <span class="nav-text">说唱詩人</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#环境准备"><span class="nav-number">1.</span> <span class="nav-text">环境准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署步骤"><span class="nav-number">2.</span> <span class="nav-text">部署步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#容器的创建与远程连接"><span class="nav-number">2.0.1.</span> <span class="nav-text">容器的创建与远程连接</span></a></li></ol></li></ol></div>
             
 
           </div>
