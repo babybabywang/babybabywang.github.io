@@ -89,7 +89,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/01/24/使用Logstash同步ElasticSearch与Mysql数据/启动logstash.png">
 <meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/01/24/使用Logstash同步ElasticSearch与Mysql数据/同步数据库成功.png">
-<meta property="og:updated_time" content="2019-01-25T12:34:00.648Z">
+<meta property="og:updated_time" content="2019-01-26T04:10:12.020Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Logstash同步ElasticSearch与Mysql数据">
 <meta name="twitter:description" content="使用Logstash同步ElasticSearch与Mysql数据">
@@ -424,9 +424,11 @@ output {
 
 第三步: 启动logstansh，用-f的方式
 logstash -f ../mysqletc/mysql.conf
-</code></pre><p><strong>注意mysql.conf路径为相对路径</strong><br><img src="/2019/01/24/使用Logstash同步ElasticSearch与Mysql数据/同步数据库成功.png" alt="同步数据库成功"><br><br><br><strong>这就是logstansh同步数据库的基础使用，也可以部署logstansh集群配合kafka或redis做到缓存同步效果</strong></p>
-</li>
+</code></pre><p><strong>注意mysql.conf路径为相对路径</strong><br><img src="/2019/01/24/使用Logstash同步ElasticSearch与Mysql数据/同步数据库成功.png" alt="同步数据库成功"><br><br></p>
+<h3 id="logstansh一些注意的问题"><a href="#logstansh一些注意的问题" class="headerlink" title="logstansh一些注意的问题"></a>logstansh一些注意的问题</h3></li>
+<li>logstansh支持多数据库同步ElasticSearch</li>
 </ol>
+<p><strong>这就是logstansh同步数据库的基础使用，也可以部署logstansh集群配合kafka或redis做到缓存同步效果</strong></p>
 
       
     </div>
@@ -581,7 +583,7 @@ logstash -f ../mysqletc/mysql.conf
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -592,7 +594,7 @@ logstash -f ../mysqletc/mysql.conf
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -603,7 +605,7 @@ logstash -f ../mysqletc/mysql.conf
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -676,7 +678,7 @@ logstash -f ../mysqletc/mysql.conf
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ElasticSearch与MYSQL数据库的同步-使用logstash"><span class="nav-number">1.</span> <span class="nav-text">ElasticSearch与MYSQL数据库的同步(使用logstash)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ElasticSearch与MYSQL数据库的同步-使用logstash"><span class="nav-number">1.</span> <span class="nav-text">ElasticSearch与MYSQL数据库的同步(使用logstash)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#logstansh一些注意的问题"><span class="nav-number">2.</span> <span class="nav-text">logstansh一些注意的问题</span></a></li></ol></div>
             
 
           </div>

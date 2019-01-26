@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="elasticsearch,docker,head,IK,docker系统优化,">
+  <meta name="keywords" content="docker,elasticsearch,head,IK,docker系统优化,">
 
 
 
@@ -80,7 +80,7 @@
 
 
 <meta name="description" content="docker环境下部署elasticsearch环境😊">
-<meta name="keywords" content="elasticsearch,docker,head,IK,docker系统优化">
+<meta name="keywords" content="docker,elasticsearch,head,IK,docker系统优化">
 <meta property="og:type" content="article">
 <meta property="og:title" content="docker下部署elasticsearch环境">
 <meta property="og:url" content="https://www.babywang.huangsm.xyz/2019/01/25/docker下部署elasticsearch环境/index.html">
@@ -90,7 +90,7 @@
 <meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/01/25/docker下部署elasticsearch环境/es测试.png">
 <meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/01/25/docker下部署elasticsearch环境/es搜索服务启动报错.png">
 <meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/01/25/docker下部署elasticsearch环境/解决docker容器中部署的跨域问题.png">
-<meta property="og:updated_time" content="2019-01-25T14:46:45.957Z">
+<meta property="og:updated_time" content="2019-01-26T03:37:57.848Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker下部署elasticsearch环境">
 <meta name="twitter:description" content="docker环境下部署elasticsearch环境😊">
@@ -442,7 +442,7 @@ http.cors.allow‐origin: &quot;*&quot;
 </code></pre><p>（2）重新启动elasticseach容器<br>（3）下载head镜像</p>
 <pre><code>docker pull mobz/elasticsearch‐head:5
 </code></pre><p>（4）创建head容器</p>
-<pre><code>docker run ‐di ‐‐name=myhead ‐p 9100:9100 docker pull mobz/elasticsearch‐head:5
+<pre><code>docker run ‐di ‐‐name=myhead ‐p 9100:9100  mobz/elasticsearch‐head:5
 </code></pre><p><strong>这样我们在docker中部署elasticsearch就完成了</strong></p>
 
       
@@ -490,9 +490,9 @@ http.cors.allow‐origin: &quot;*&quot;
       
         <div class="post-tags">
           
-            <a href="/tags/elasticsearch/" rel="tag"><i class="fa fa-tag"></i> elasticsearch</a>
-          
             <a href="/tags/docker/" rel="tag"><i class="fa fa-tag"></i> docker</a>
+          
+            <a href="/tags/elasticsearch/" rel="tag"><i class="fa fa-tag"></i> elasticsearch</a>
           
             <a href="/tags/head/" rel="tag"><i class="fa fa-tag"></i> head</a>
           
@@ -520,6 +520,10 @@ http.cors.allow‐origin: &quot;*&quot;
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/26/消息中间件RabbitMQ的使用以及基本概念/" rel="prev" title="消息中间件RabbitMQ的使用以及基本概念">
+                消息中间件RabbitMQ的使用以及基本概念 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -598,7 +602,7 @@ http.cors.allow‐origin: &quot;*&quot;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -609,7 +613,7 @@ http.cors.allow‐origin: &quot;*&quot;
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -620,7 +624,7 @@ http.cors.allow‐origin: &quot;*&quot;
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
