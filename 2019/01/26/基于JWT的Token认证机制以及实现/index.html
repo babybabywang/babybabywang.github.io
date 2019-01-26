@@ -90,7 +90,7 @@
 <meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/01/26/基于JWT的Token认证机制以及实现/Cookie认证机制.png">
 <meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/01/26/基于JWT的Token认证机制以及实现/OAuth认证机制.png">
 <meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/01/26/基于JWT的Token认证机制以及实现/JwtToken.png">
-<meta property="og:updated_time" content="2019-01-26T12:13:32.634Z">
+<meta property="og:updated_time" content="2019-01-26T14:20:59.211Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于JWT的Token认证机制以及实现">
 <meta name="twitter:description" content="基于JWT的Token认证机制以及实现😊">
@@ -469,7 +469,7 @@ OAuth允许用户提供一个令牌，而不是用户名和密码来访问他们
 </ol>
 <p><strong>头部（Header）</strong></p>
 <pre><code>头部用于描述关于该JWT的最基本的信息，例如其类型以及签名所用的算法等。这也可以被表示成一个JSON对象。
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">		在头部指明了签名算法是HS256算法。 我们进行BASE64编码http://base64.xpcha.com/，编码后的字符串如下：</span><br><span class="line"></span><br><span class="line">```eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1Ni</span><br></pre></td></tr></table></figure>
+</code></pre> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">	在头部指明了签名算法是HS256算法。 我们进行BASE64编码http://base64.xpcha.com/，编码后的字符串如下：</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">```eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1Ni</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>小知识：Base64是一种基于64个可打印字符来表示二进制数据的表示方法。由于2的6次方等于64，所以每6个比特为一个单元，对应某个可打印字符。三个字节有24个比特，对应于4个Base64单元，即3个字节需要用4个可打印字符来表示。JDK 中提供了非常方便的 BASE64Encoder 和 BASE64Decoder，用它们可以非常方便的完成基于 BASE64 的编码和解码</p>
 </blockquote>
@@ -497,7 +497,7 @@ OAuth允许用户提供一个令牌，而不是用户名和密码来访问他们
     拿到JWT之后，都知道怎么对这些标准的claim进行验证(还不知道是否能够验证)；而
     private claims不会验证，除非明确告诉接收方要对这些claim进行验证以及规则才行.
 </code></pre><p><em>定义一个payload:</em></p>
-<figure class="highlight plain"><figcaption><span>Doe","admin":true&#125;```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*然后将其进行base64编码，得到Jwt的第二部分。*</span><br><span class="line"></span><br><span class="line">```eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>Doe","admin":true&#125;```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">*然后将其进行base64编码，得到Jwt的第二部分。*</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">```eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9</span><br></pre></td></tr></table></figure>
 <p><strong>签证（signature）</strong></p>
 <p><em>jwt的第三部分是一个签证信息，这个签证信息由三部分组成</em></p>
 <pre><code>    header (base64后的)
