@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="babybabywang">
 <meta property="og:description" content="基于JWT的微服务鉴权开发实现😊">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-26T14:18:08.850Z">
+<meta property="og:updated_time" content="2019-01-26T14:30:20.715Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于JWT的微服务鉴权开发实现">
 <meta name="twitter:description" content="基于JWT的微服务鉴权开发实现😊">
@@ -458,6 +458,8 @@ public String login(String loginName,String password){
     return token;
 }
 </code></pre></li>
+</ol>
+<ol start="4">
 <li><p>管理员删除用户功能鉴权</p>
 <pre><code>需求：删除用户，必须拥有管理员权限，否则不能删除
 前后端约定：前端请求微服务时需要添加头信息Authorization ,内容为Bearer+空格+token
@@ -491,6 +493,8 @@ public String login(String loginName,String password){
     }
 </code></pre></li>
 <li><p>上述代码你会发现个问题，每次验证都需要写一大堆业务，代码过于重复，这里使用拦截器来完成鉴权</p>
+</li>
+</ol>
 <pre><code>一、编写拦截器
 /**
  * 授权拦截器
@@ -591,9 +595,7 @@ public class WebConfig extends WebMvcConfigurationSupport {
         }
         userDao.deleteById(id);
     }
-</code></pre></li>
-</ol>
-<p><strong>这是是一个拦截器的简单使用，其实可以加上角色认证和aop注解栏控制那些请求不需要拦截</strong></p>
+</code></pre><p><strong>这是是一个拦截器的简单使用，其实可以加上角色认证和aop注解栏控制那些请求不需要拦截</strong></p>
 
       
     </div>
