@@ -84,9 +84,9 @@
         <category>elasticsearch</category>
       </categories>
       <tags>
+        <tag>head</tag>
         <tag>elasticsearch</tag>
         <tag>docker</tag>
-        <tag>head</tag>
         <tag>IK</tag>
         <tag>docker系统优化</tag>
       </tags>
@@ -112,9 +112,9 @@
         <category>ElasticSearch</category>
       </categories>
       <tags>
-        <tag>SpringData</tag>
-        <tag>head</tag>
         <tag>ElasticSearch</tag>
+        <tag>head</tag>
+        <tag>SpringData</tag>
         <tag>IK分词器</tag>
       </tags>
   </entry>
