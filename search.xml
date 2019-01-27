@@ -126,8 +126,8 @@
         <category>ElasticSearch</category>
       </categories>
       <tags>
-        <tag>SpringData</tag>
         <tag>head</tag>
+        <tag>SpringData</tag>
         <tag>ElasticSearch</tag>
         <tag>IK分词器</tag>
       </tags>
