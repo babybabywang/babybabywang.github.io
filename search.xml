@@ -67,8 +67,8 @@
         <category>elasticsearch</category>
       </categories>
       <tags>
-        <tag>docker</tag>
         <tag>elasticsearch</tag>
+        <tag>docker</tag>
         <tag>head</tag>
         <tag>IK</tag>
         <tag>docker系统优化</tag>
@@ -95,9 +95,9 @@
         <category>ElasticSearch</category>
       </categories>
       <tags>
-        <tag>ElasticSearch</tag>
         <tag>SpringData</tag>
         <tag>head</tag>
+        <tag>ElasticSearch</tag>
         <tag>IK分词器</tag>
       </tags>
   </entry>
@@ -175,9 +175,9 @@
         <category>maven私服</category>
       </categories>
       <tags>
+        <tag>docker</tag>
         <tag>maven</tag>
         <tag>nexus</tag>
-        <tag>docker</tag>
       </tags>
   </entry>
   <entry>
