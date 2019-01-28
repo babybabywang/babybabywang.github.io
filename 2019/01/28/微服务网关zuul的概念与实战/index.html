@@ -114,7 +114,7 @@
 <meta property="og:description" content="微服务网关zuul的概念与实战😊">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/01/28/微服务网关zuul的概念与实战/Zuul图.png">
-<meta property="og:updated_time" content="2019-01-28T14:48:22.770Z">
+<meta property="og:updated_time" content="2019-01-28T15:00:49.572Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微服务网关zuul的概念与实战">
 <meta name="twitter:description" content="微服务网关zuul的概念与实战😊">
@@ -440,22 +440,22 @@
         <h1 id="微服务网关Zuul"><a href="#微服务网关Zuul" class="headerlink" title="微服务网关Zuul"></a>微服务网关Zuul</h1><h3 id="为什么需要微服务网关"><a href="#为什么需要微服务网关" class="headerlink" title="为什么需要微服务网关"></a>为什么需要微服务网关</h3><pre><code>不同的微服务一般有不同的网络地址，而外部的客户端可能需要调用多个服务的接口才
 能完成一个业务需求。比如一个电影购票的收集APP,可能回调用电影分类微服务，用户
 微服务，支付微服务等。如果客户端直接和微服务进行通信，会存在一下问题：
-# 客户端会多次请求不同微服务，增加客户端的复杂性
-# 存在跨域请求，在一定场景下处理相对复杂
-# 认证复杂，每一个服务都需要独立认证
-# 难以重构，随着项目的迭代，可能需要重新划分微服务，如果客户端直接和微服务通信，那么重构会难以实施
-# 某些微服务可能使用了其他协议，直接访问有一定困难
+ 客户端会多次请求不同微服务，增加客户端的复杂性
+ 存在跨域请求，在一定场景下处理相对复杂
+ 认证复杂，每一个服务都需要独立认证
+ 难以重构，随着项目的迭代，可能需要重新划分微服务，如果客户端直接和微服务通信，那么重构会难以实施
+ 某些微服务可能使用了其他协议，直接访问有一定困难
 上述问题，都可以借助微服务网关解决。微服务网关是介于客户端和服务器端之间的中
 间层，所有的外部请求都会先经过微服务网关。
 </code></pre><h3 id="什么是Zuul"><a href="#什么是Zuul" class="headerlink" title="什么是Zuul"></a>什么是Zuul</h3><pre><code>Zuul是Netflix开源的微服务网关，他可以和Eureka,Ribbon,Hystrix等组件配合使
 用。Zuul组件的核心是一系列的过滤器，这些过滤器可以完成以下功能：
-# 身份认证和安全: 识别每一个资源的验证要求，并拒绝那些不符的请求
-# 审查与监控：
-## 动态路由：动态将请求路由到不同后端集群
-# 压力测试：逐渐增加指向集群的流量，以了解性能
-# 负载分配：为每一种负载类型分配对应容量，并弃用超出限定值的请求
-# 静态响应处理：边缘位置进行响应，避免转发到内部集群
-# 多区域弹性：跨域AWS Region进行请求路由，旨在实现ELB(ElasticLoad Balancing)使
+ 身份认证和安全: 识别每一个资源的验证要求，并拒绝那些不符的请求
+审查与监控：
+ 动态路由：动态将请求路由到不同后端集群
+ 压力测试：逐渐增加指向集群的流量，以了解性能
+ 负载分配：为每一种负载类型分配对应容量，并弃用超出限定值的请求
+ 静态响应处理：边缘位置进行响应，避免转发到内部集群
+ 多区域弹性：跨域AWS Region进行请求路由，旨在实现ELB(ElasticLoad Balancing)使
 用多样化
 Spring Cloud对Zuul进行了整合和增强。
 使用Zuul后，架构图演变为以下形式
@@ -652,7 +652,7 @@ public class WebMvcConfigurer {
 </code></pre></li>
 </ol>
 <p><strong>关于更加详细的Zuul网关的使用，可以了解下我的码云上的代码</strong></p>
-<p><a href="https://gitee.com/wangyuanbaby/microservice-springcloud/tree/master/microservice-gateway-zuul-filter/src/main/java/com/huangsm/cloud" target="_blank" rel="noopener">SpringCloud-Zuul</a></p>
+<p><a href="https://gitee.com/wangyuanbaby/microservice-springcloud/tree/master/microservice-gateway-zuul-filter/" target="_blank" rel="noopener">SpringCloud-Zuul</a></p>
 
       
     </div>
