@@ -8,10 +8,10 @@
         <category>SpringCloud</category>
       </categories>
       <tags>
-        <tag>SpringBoot</tag>
         <tag>SpringCloud</tag>
-        <tag>Hystrix</tag>
+        <tag>SpringBoot</tag>
         <tag>Feign</tag>
+        <tag>Hystrix</tag>
       </tags>
   </entry>
   <entry>
@@ -22,11 +22,11 @@
         <category>SpringCloud</category>
       </categories>
       <tags>
-        <tag>SpringBoot</tag>
         <tag>SpringCloud</tag>
-        <tag>Feign</tag>
+        <tag>SpringBoot</tag>
         <tag>Dubbo</tag>
         <tag>Eureka</tag>
+        <tag>Feign</tag>
         <tag>rabbion</tag>
         <tag>负载均衡</tag>
       </tags>
@@ -69,8 +69,8 @@
         <category>RabbitMQ</category>
       </categories>
       <tags>
-        <tag>RabbitMQ</tag>
         <tag>SpringBoot</tag>
+        <tag>RabbitMQ</tag>
         <tag>短信服务</tag>
       </tags>
   </entry>
