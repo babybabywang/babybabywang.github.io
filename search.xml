@@ -23,8 +23,8 @@
         <category>SpringCloud</category>
       </categories>
       <tags>
-        <tag>SpringCloud</tag>
         <tag>SpringBoot</tag>
+        <tag>SpringCloud</tag>
         <tag>Feign</tag>
         <tag>Hystrix</tag>
       </tags>
@@ -37,8 +37,8 @@
         <category>SpringCloud</category>
       </categories>
       <tags>
-        <tag>SpringCloud</tag>
         <tag>SpringBoot</tag>
+        <tag>SpringCloud</tag>
         <tag>Dubbo</tag>
         <tag>Eureka</tag>
         <tag>Feign</tag>
@@ -84,8 +84,8 @@
         <category>RabbitMQ</category>
       </categories>
       <tags>
-        <tag>SpringBoot</tag>
         <tag>RabbitMQ</tag>
+        <tag>SpringBoot</tag>
         <tag>短信服务</tag>
       </tags>
   </entry>
@@ -113,8 +113,8 @@
         <category>elasticsearch</category>
       </categories>
       <tags>
-        <tag>docker</tag>
         <tag>elasticsearch</tag>
+        <tag>docker</tag>
         <tag>head</tag>
         <tag>IK</tag>
         <tag>docker系统优化</tag>
@@ -141,9 +141,9 @@
         <category>ElasticSearch</category>
       </categories>
       <tags>
-        <tag>SpringData</tag>
-        <tag>ElasticSearch</tag>
         <tag>head</tag>
+        <tag>ElasticSearch</tag>
+        <tag>SpringData</tag>
         <tag>IK分词器</tag>
       </tags>
   </entry>
@@ -221,9 +221,9 @@
         <category>maven私服</category>
       </categories>
       <tags>
+        <tag>docker</tag>
         <tag>maven</tag>
         <tag>nexus</tag>
-        <tag>docker</tag>
       </tags>
   </entry>
   <entry>
