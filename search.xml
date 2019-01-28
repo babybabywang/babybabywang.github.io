@@ -3,7 +3,17 @@
   <entry>
     <title><![CDATA[微服务网关zuul的概念与实战]]></title>
     <url>%2F2019%2F01%2F28%2F%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%BD%91%E5%85%B3zuul%E7%9A%84%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%AE%9E%E6%88%98%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[微服务网关Zuul为什么需要微服务网关不同的微服务一般有不同的网络地址，而外部的客户端可能需要调用多个服务的接口才 能完成一个业务需求。比如一个电影购票的收集APP,可能回调用电影分类微服务，用户 微服务，支付微服务等。如果客户端直接和微服务进行通信，会存在一下问题： # 客户端会多次请求不同微服务，增加客户端的复杂性 # 存在跨域请求，在一定场景下处理相对复杂 # 认证复杂，每一个服务都需要独立认证 # 难以重构，随着项目的迭代，可能需要重新划分微服务，如果客户端直接和微服务通信，那么重构会难以实施 # 某些微服务可能使用了其他协议，直接访问有一定困难 上述问题，都可以借助微服务网关解决。微服务网关是介于客户端和服务器端之间的中 间层，所有的外部请求都会先经过微服务网关。 什么是ZuulZuul是Netflix开源的微服务网关，他可以和Eureka,Ribbon,Hystrix等组件配合使 用。Zuul组件的核心是一系列的过滤器，这些过滤器可以完成以下功能： # 身份认证和安全: 识别每一个资源的验证要求，并拒绝那些不符的请求 # 审查与监控： ## 动态路由：动态将请求路由到不同后端集群 # 压力测试：逐渐增加指向集群的流量，以了解性能 # 负载分配：为每一种负载类型分配对应容量，并弃用超出限定值的请求 # 静态响应处理：边缘位置进行响应，避免转发到内部集群 # 多区域弹性：跨域AWS Region进行请求路由，旨在实现ELB(ElasticLoad Balancing)使 用多样化 Spring Cloud对Zuul进行了整合和增强。 使用Zuul后，架构图演变为以下形式 Zuul路由转发 引入依赖 &lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-netflix-eureka-client&lt;/artifactId&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-netflix-zuul&lt;/artifactId&gt; &lt;/dependency&gt; 修改application.yml文件 server: port: 9012 spring: application: name: tensquare-manager eureka: client: service-url: defaultZone: http://localhost:9010/eureka/ instance: prefer-ip-address: true instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}} zuul: routes: tensquare-base: /base/** tensquare-article: /article/** tensquare-user: /user/** jwt: config: key: huangsmzhenshuai hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 60000 # 解决请求超时连接问题 ribbon: ConnectTimeout: 3000 ReadTimeout: 60000 management: endpoint: health: show-details: always endpoints: web: exposure: include: &quot;*&quot; 在启动类添加@EnableZuulProxy Zuul过滤器 Zuul过滤器快速体验 创建一个简单的zuul过滤器: /** * Zuul过滤器 * @author huangsm */ @Component public class WebFilter extends ZuulFilter { /** * filterType：返回一个字符串代表过滤器的类型，在zuul中定义了四种不同生命周期的过 * 滤器类型，具体如下： * * pre ：可以在请求被路由之前调用 * * route ：在路由请求时候被调用 * * post ：在route和error过滤器之后被调用 * * error ：处理请求时发生错误时被调用 * filterOrder ：通过int值来定义过滤器的执行顺序 * shouldFilter ：返回一个boolean类型来判断该过滤器是否要执行，所以通过此函数可 * 实现过滤器的开关。在上例中，我们直接返回true，所以该过滤器总是生效 * run ：过滤器的具体逻辑。 */ @Override public String filterType() { //前置过滤器 return &quot;pre&quot;; } @Override public int filterOrder() { //优先级为0,数字越大，优先级越低 return 0; } @Override public boolean shouldFilter() { //是否执行该过滤器，此处为true，说明需要过滤 return true; } @Override public Object run() throws ZuulException { System.out.println(&quot;进过了Zuul过滤器!&quot;); return null; } } filterType：返回一个字符串代表过滤器的类型，在zuul中定义了四种不同生命周期的过 滤器类型，具体如下： * pre ：可以在请求被路由之前调用 * route ：在路由请求时候被调用 * post ：在route和error过滤器之后被调用 * error ：处理请求时发生错误时被调用 filterOrder ：通过int值来定义过滤器的执行顺序 shouldFilter ：返回一个boolean类型来判断该过滤器是否要执行，所以通过此函数可 实现过滤器的开关。在上例中，我们直接返回true，所以该过滤器总是生效 run ：过滤器的具体逻辑。 网站前台的token转发 1.网关转发Token信息到下游服务 @Override public Object run() throws ZuulException { System.out.println(&quot;进过了Zuul过滤器!&quot;); //得到request上下文 RequestContext currentContext = RequestContext.getCurrentContext(); //得到request域 HttpServletRequest request = currentContext.getRequest(); //得到头信息 String authorization = request.getHeader(&quot;Authorization&quot;); //判断是否有头信息 if (StringUtils.isNotBlank(authorization)) { currentContext.addZuulRequestHeader(&quot;Authorization&quot;, authorization); } return null; } 管理后台过滤器实现token校验 @Override public Object run() throws ZuulException { RequestContext currentContext = RequestContext.getCurrentContext(); HttpServletRequest request = RequestContext.getCurrentContext().getRequest(); String authorization = request.getHeader(&quot;Authorization&quot;); //第一次请求时，进过OPTIONS方法来分发路径，不会带有头信息 if (request.getMethod().equals(&quot;OPTIONS&quot;)){ return null; } //如果login存在这为登录请求，就放行 if (request.getRequestURI().indexOf(&quot;/admin/login&quot;)&gt;0){ System.out.println(&quot;登录页面&quot;+request.getRequestURI()); return null; } if (StringUtils.isNotBlank(authorization)) { if (authorization.startsWith(&quot;Bearer &quot;)) { String token = authorization.substring(7); try { Claims claims = jwtUtil.parseJWT(token); String roles = (String) claims.get(&quot;roles&quot;); if (roles.equals(&quot;admin&quot;)) { currentContext.addZuulRequestHeader(&quot;Authorization&quot;, authorization); return null; } } catch (Exception e) { //终止运行 currentContext.setSendZuulResponse(false); currentContext.setResponseStatusCode(HttpStatus.SC_UNAUTHORIZED); currentContext.setResponseBody(&quot;无权访问&quot;); } } } //终止运行 currentContext.setSendZuulResponse(false); currentContext.setResponseStatusCode(HttpStatus.SC_UNAUTHORIZED); currentContext.setResponseBody(&quot;无权访问&quot;); currentContext.getResponse().setContentType(&quot;text/html;charset=UTF-8&quot;); return null; } 解决CORS跨域请求问题 /** * 解决cors跨域问题 * @author huangsm * @version V1.0 */ @Configuration public class WebMvcConfigurer { @Bean public WebMvcConfigurer corsConfigurer() { return new WebMvcConfigurer() { public void addCorsMappings(CorsRegistry registry) { registry.addMapping(&quot;/users/**&quot;) .allowedOrigins(&quot;http://huangsm.zyx.com&quot;) .allowedMethods(&quot;GET&quot;, &quot;POST&quot;); } }; } } 关于更加详细的Zuul网关的使用，可以了解下我的码云上的代码 SpringCloud-Zuul]]></content>
+      <categories>
+        <category>Zuul</category>
+      </categories>
+      <tags>
+        <tag>Zuul</tag>
+        <tag>统一权限管理与Token转发</tag>
+        <tag>Zuul访问超时问题解决</tag>
+        <tag>统一Cors跨域解决</tag>
+        <tag>Zuul过滤器</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[SpringCloud的Hystrix断路器在服务中的应用]]></title>
@@ -13,8 +23,8 @@
         <category>SpringCloud</category>
       </categories>
       <tags>
-        <tag>SpringBoot</tag>
         <tag>SpringCloud</tag>
+        <tag>SpringBoot</tag>
         <tag>Feign</tag>
         <tag>Hystrix</tag>
       </tags>
@@ -27,8 +37,8 @@
         <category>SpringCloud</category>
       </categories>
       <tags>
-        <tag>SpringBoot</tag>
         <tag>SpringCloud</tag>
+        <tag>SpringBoot</tag>
         <tag>Dubbo</tag>
         <tag>Eureka</tag>
         <tag>Feign</tag>
@@ -74,8 +84,8 @@
         <category>RabbitMQ</category>
       </categories>
       <tags>
-        <tag>RabbitMQ</tag>
         <tag>SpringBoot</tag>
+        <tag>RabbitMQ</tag>
         <tag>短信服务</tag>
       </tags>
   </entry>
@@ -103,8 +113,8 @@
         <category>elasticsearch</category>
       </categories>
       <tags>
-        <tag>elasticsearch</tag>
         <tag>docker</tag>
+        <tag>elasticsearch</tag>
         <tag>head</tag>
         <tag>IK</tag>
         <tag>docker系统优化</tag>
@@ -132,8 +142,8 @@
       </categories>
       <tags>
         <tag>SpringData</tag>
-        <tag>head</tag>
         <tag>ElasticSearch</tag>
+        <tag>head</tag>
         <tag>IK分词器</tag>
       </tags>
   </entry>
@@ -211,9 +221,9 @@
         <category>maven私服</category>
       </categories>
       <tags>
-        <tag>docker</tag>
         <tag>maven</tag>
         <tag>nexus</tag>
+        <tag>docker</tag>
       </tags>
   </entry>
   <entry>
