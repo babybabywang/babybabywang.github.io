@@ -3,12 +3,12 @@
   <entry>
     <title><![CDATA[dockerfile的基本使用以及服务的部署]]></title>
     <url>%2F2019%2F02%2F01%2Fdockerfile%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E4%BB%A5%E5%8F%8A%E6%9C%8D%E5%8A%A1%E7%9A%84%E9%83%A8%E7%BD%B2%2F</url>
-    <content type="text"><![CDATA[DockerFile什么是DockerFile?Dockerfile是由一系列命令和参数构成的脚本，这些命令应用于基础镜像并最终创建一个新的镜像。 1、对于开发人员：可以为开发团队提供一个完全一致的开发环境； 2、对于测试人员：可以直接拿开发时所构建的镜像或者通过Dockerfile文件构建一个新的镜像开始工作了； 3、对于运维人员：在部署时，可以实现应用的无缝移植。 常用命令 使用脚本创建镜像1.首先将jdk的压缩包上传到服务器 2.编写dockerfile #依赖镜像名称和ID FROM centos:7 #指定镜像创建者信息 MAINTAINER Huangsm #切换工作目录 WORKDIR /usr RUN mkdir /usr/local/java #ADD 是相对路径jar,把java添加到容器中 ADD jdk-8u171-linux-x64.tar.gz /usr/local/java/ #配置java环境变量 ENV JAVA_HOME /usr/local/java/jdk1.8.0_171 ENV JRE_HOME $JAVA_HOME/jre ENV CLASSPATH $JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib:$CLASSPATH ENV PATH $JAVA_HOME/bin:$PATH 3.使用docker build构建镜像 使用命令docker build -t=&quot;huangsm/jdk8&quot; . 4.启动容器 docker run -it --name=myjdk8 huangsm/jdk8 /bin/bash Docker私有仓库私有仓库搭建与配置1.拉取私有仓库镜像 docker pull registry 2.启动私有仓库容器 docker run -d --name=huangsm_dockerresp -p 5000:5000 docker.io/registry 3.查看仓库内容 http://192.168.25.133:5000/v2/_catalog 4.修改daemon.json vi /etc/docker/daemon.json 添加如下内容: &quot;insecure-registries&quot;:[&quot;192.168.25.133:5000&quot;] 5.重启docker服务 systemctl restart docker 镜像上传至私有仓库（1）标记此镜像为私有仓库的镜像 docker tag huangsm/jdk8 192.168.25.133:5000/jdk1.8 （2）再次启动私服容器 docker start huangsm_dockerresp （3）上传标记的镜像 docker push 192.168.25.133:5000/jdk1.8 DockerMaven插件微服务部署有两种方法： （1）手动部署：首先基于源码打包生成jar包（或war包）,将jar包（或war包）上传至虚 拟机并拷贝至JDK容器。 （2）通过Maven插件自动部署。 对于数量众多的微服务，手动部署无疑是非常麻烦的做法，并且容易出错。所以我们这 里学习如何自动部署，这也是企业实际开发中经常使用的方法 Maven插件自动部署步骤: （1）修改宿主机的docker配置，让其可以远程访问 vi /lib/systemd/system/docker.service ExecStart=/usr/bin/dockerd-current -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock （2）刷新配置，重启服务 systemctl daemon‐reload systemctl restart docker docker start registry (3)在config配置中心工程pom.xml 增加配置插件 &lt;build&gt; &lt;finalName&gt;app&lt;/finalName&gt; &lt;plugins&gt; &lt;plugin&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt; &lt;/plugin&gt; &lt;!-- docker的maven插件，官网：https://github.com/spotify/docker‐maven‐plugin --&gt; &lt;plugin&gt; &lt;groupId&gt;com.spotify&lt;/groupId&gt; &lt;artifactId&gt;docker-maven-plugin&lt;/artifactId&gt; &lt;version&gt;0.4.13&lt;/version&gt; &lt;configuration&gt; &lt;imageName&gt;192.168.25.134:5000/${project.artifactId}:${project.version}&lt;/imageName&gt; &lt;baseImage&gt;192.168.25.134:5000/jdk1.8&lt;/baseImage&gt; &lt;entryPoint&gt;[&quot;java&quot;, &quot;-jar&quot;,&quot;/${project.build.finalName}.jar&quot;]&lt;/entryPoint&gt; &lt;resources&gt; &lt;resource&gt; &lt;targetPath&gt;/&lt;/targetPath&gt; &lt;directory&gt;${project.build.directory}&lt;/directory&gt; &lt;include&gt;${project.build.finalName}.jar&lt;/include&gt; &lt;/resource&gt; &lt;/resources&gt; &lt;dockerHost&gt;http://192.168.25.134:2375&lt;/dockerHost&gt; &lt;/configuration&gt; &lt;/plugin&gt; &lt;/plugins&gt; &lt;/build&gt; 使用以上DockerMaven插件会自动创建Dockerfile (4) 使用mvn clean package docker:build -DpushImage 根据图片就可以看出我已经将我开发的微服务push到私人仓库中了]]></content>
+    <content type="text"><![CDATA[DockerFile什么是DockerFile?Dockerfile是由一系列命令和参数构成的脚本，这些命令应用于基础镜像并最终创建一个新的镜像。 1、对于开发人员：可以为开发团队提供一个完全一致的开发环境； 2、对于测试人员：可以直接拿开发时所构建的镜像或者通过Dockerfile文件构建一个新的镜像开始工作了； 3、对于运维人员：在部署时，可以实现应用的无缝移植。 常用命令 使用脚本创建镜像1.首先将jdk的压缩包上传到服务器 2.编写dockerfile #依赖镜像名称和ID FROM centos:7 #指定镜像创建者信息 MAINTAINER Huangsm #切换工作目录 WORKDIR /usr RUN mkdir /usr/local/java #ADD 是相对路径jar,把java添加到容器中 ADD jdk-8u171-linux-x64.tar.gz /usr/local/java/ #配置java环境变量 ENV JAVA_HOME /usr/local/java/jdk1.8.0_171 ENV JRE_HOME $JAVA_HOME/jre ENV CLASSPATH $JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib:$CLASSPATH ENV PATH $JAVA_HOME/bin:$PATH 3.使用docker build构建镜像 使用命令docker build -t=&quot;huangsm/jdk8&quot; . 4.启动容器 docker run -it --name=myjdk8 huangsm/jdk8 /bin/bash Docker私有仓库私有仓库搭建与配置1.拉取私有仓库镜像 docker pull registry 2.启动私有仓库容器 docker run -d --name=huangsm_dockerresp -p 5000:5000 docker.io/registry 3.查看仓库内容 http://192.168.25.133:5000/v2/_catalog 4.修改daemon.json vi /etc/docker/daemon.json 添加如下内容: &quot;insecure-registries&quot;:[&quot;192.168.25.133:5000&quot;] 5.重启docker服务 systemctl restart docker 镜像上传至私有仓库（1）标记此镜像为私有仓库的镜像 docker tag huangsm/jdk8 192.168.25.133:5000/jdk1.8 （2）再次启动私服容器 docker start huangsm_dockerresp （3）上传标记的镜像 docker push 192.168.25.133:5000/jdk1.8 DockerMaven插件微服务部署有两种方法： （1）手动部署：首先基于源码打包生成jar包（或war包）,将jar包（或war包）上传至虚拟机并拷贝至JDK容器。 （2）通过Maven插件自动部署。 对于数量众多的微服务，手动部署无疑是非常麻烦的做法，并且容易出错。所以我们这里学习如何自动部署， 这也是企业实际开发中经常使用的方法 Maven插件自动部署步骤: （1）修改宿主机的docker配置，让其可以远程访问 vi /lib/systemd/system/docker.service ExecStart=/usr/bin/dockerd-current -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock （2）刷新配置，重启服务 systemctl daemon‐reload systemctl restart docker docker start registry (3)在config配置中心工程pom.xml 增加配置插件 &lt;build&gt; &lt;finalName&gt;app&lt;/finalName&gt; &lt;plugins&gt; &lt;plugin&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt; &lt;/plugin&gt; &lt;!-- docker的maven插件，官网：https://github.com/spotify/docker‐maven‐plugin --&gt; &lt;plugin&gt; &lt;groupId&gt;com.spotify&lt;/groupId&gt; &lt;artifactId&gt;docker-maven-plugin&lt;/artifactId&gt; &lt;version&gt;0.4.13&lt;/version&gt; &lt;configuration&gt; &lt;imageName&gt;192.168.25.134:5000/${project.artifactId}:${project.version}&lt;/imageName&gt; &lt;baseImage&gt;192.168.25.134:5000/jdk1.8&lt;/baseImage&gt; &lt;entryPoint&gt;[&quot;java&quot;, &quot;-jar&quot;,&quot;/${project.build.finalName}.jar&quot;]&lt;/entryPoint&gt; &lt;resources&gt; &lt;resource&gt; &lt;targetPath&gt;/&lt;/targetPath&gt; &lt;directory&gt;${project.build.directory}&lt;/directory&gt; &lt;include&gt;${project.build.finalName}.jar&lt;/include&gt; &lt;/resource&gt; &lt;/resources&gt; &lt;dockerHost&gt;http://192.168.25.134:2375&lt;/dockerHost&gt; &lt;/configuration&gt; &lt;/plugin&gt; &lt;/plugins&gt; &lt;/build&gt; 使用以上DockerMaven插件会自动创建Dockerfile (4) 使用mvn clean package docker:build -DpushImage 根据图片就可以看出我已经将我开发的微服务push到私人仓库中了]]></content>
       <categories>
         <category>Dockerfile</category>
       </categories>
       <tags>
-        <tag>dockerfile</tag>
+        <tag>DockerFile</tag>
         <tag>docker</tag>
         <tag>DockerMaven</tag>
       </tags>
@@ -50,8 +50,8 @@
         <category>SpringCloud</category>
       </categories>
       <tags>
-        <tag>SpringCloud</tag>
         <tag>SpringBoot</tag>
+        <tag>SpringCloud</tag>
         <tag>Feign</tag>
         <tag>Hystrix</tag>
       </tags>
@@ -64,8 +64,8 @@
         <category>SpringCloud</category>
       </categories>
       <tags>
-        <tag>SpringCloud</tag>
         <tag>SpringBoot</tag>
+        <tag>SpringCloud</tag>
         <tag>Dubbo</tag>
         <tag>Eureka</tag>
         <tag>Feign</tag>
@@ -140,9 +140,9 @@
         <category>elasticsearch</category>
       </categories>
       <tags>
+        <tag>head</tag>
         <tag>docker</tag>
         <tag>elasticsearch</tag>
-        <tag>head</tag>
         <tag>IK</tag>
         <tag>docker系统优化</tag>
       </tags>
@@ -168,8 +168,8 @@
         <category>ElasticSearch</category>
       </categories>
       <tags>
-        <tag>head</tag>
         <tag>ElasticSearch</tag>
+        <tag>head</tag>
         <tag>SpringData</tag>
         <tag>IK分词器</tag>
       </tags>

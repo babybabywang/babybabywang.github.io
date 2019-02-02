@@ -94,7 +94,7 @@
 
 
 
-  <meta name="keywords" content="dockerfile,docker,DockerMaven,">
+  <meta name="keywords" content="DockerFile,docker,DockerMaven,">
 
 
 
@@ -105,21 +105,21 @@
 
 
 
-<meta name="description" content="dockerfile的基本使用以及服务的部署😊">
-<meta name="keywords" content="dockerfile,docker,DockerMaven">
+<meta name="description" content="DockerFile的基本使用以及服务的部署😊">
+<meta name="keywords" content="DockerFile,docker,DockerMaven">
 <meta property="og:type" content="article">
 <meta property="og:title" content="dockerfile的基本使用以及服务的部署">
 <meta property="og:url" content="https://www.babywang.huangsm.xyz/2019/02/01/dockerfile的基本使用以及服务的部署/index.html">
 <meta property="og:site_name" content="babybabywang">
-<meta property="og:description" content="dockerfile的基本使用以及服务的部署😊">
+<meta property="og:description" content="DockerFile的基本使用以及服务的部署😊">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/01/dockerfile的基本使用以及服务的部署/DockerFile常用命令.png">
 <meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/01/dockerfile的基本使用以及服务的部署/将镜像push到私人仓库.png">
 <meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/01/dockerfile的基本使用以及服务的部署/使用MavenDocker插件将镜像发布到私人仓库中.png">
-<meta property="og:updated_time" content="2019-02-02T12:50:42.298Z">
+<meta property="og:updated_time" content="2019-02-02T12:58:26.652Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="dockerfile的基本使用以及服务的部署">
-<meta name="twitter:description" content="dockerfile的基本使用以及服务的部署😊">
+<meta name="twitter:description" content="DockerFile的基本使用以及服务的部署😊">
 <meta name="twitter:image" content="https://www.babywang.huangsm.xyz/2019/02/01/dockerfile的基本使用以及服务的部署/DockerFile常用命令.png">
 
 
@@ -422,7 +422,7 @@
 
           
               <div class="post-description">
-                  dockerfile的基本使用以及服务的部署😊
+                  DockerFile的基本使用以及服务的部署😊
               </div>
           
 
@@ -484,11 +484,10 @@ docker start huangsm_dockerresp
 docker push 192.168.25.133:5000/jdk1.8
 </code></pre><p><img src="/2019/02/01/dockerfile的基本使用以及服务的部署/将镜像push到私人仓库.png" alt="将镜像push到私人仓库"></p>
 <h2 id="DockerMaven插件"><a href="#DockerMaven插件" class="headerlink" title="DockerMaven插件"></a>DockerMaven插件</h2><pre><code>微服务部署有两种方法：
-（1）手动部署：首先基于源码打包生成jar包（或war包）,将jar包（或war包）上传至虚
-拟机并拷贝至JDK容器。
+（1）手动部署：首先基于源码打包生成jar包（或war包）,将jar包（或war包）上传至虚拟机并拷贝至JDK容器。
 （2）通过Maven插件自动部署。
-对于数量众多的微服务，手动部署无疑是非常麻烦的做法，并且容易出错。所以我们这
-里学习如何自动部署，这也是企业实际开发中经常使用的方法
+  对于数量众多的微服务，手动部署无疑是非常麻烦的做法，并且容易出错。所以我们这里学习如何自动部署，
+这也是企业实际开发中经常使用的方法
 Maven插件自动部署步骤:
 （1）修改宿主机的docker配置，让其可以远程访问
 vi /lib/systemd/system/docker.service
@@ -578,7 +577,7 @@ ExecStart=/usr/bin/dockerd-current -H tcp://0.0.0.0:2375 -H unix:///var/run/dock
       
         <div class="post-tags">
           
-            <a href="/tags/dockerfile/" rel="tag"><i class="fa fa-tag"></i> dockerfile</a>
+            <a href="/tags/DockerFile/" rel="tag"><i class="fa fa-tag"></i> DockerFile</a>
           
             <a href="/tags/docker/" rel="tag"><i class="fa fa-tag"></i> docker</a>
           
