@@ -1,0 +1,1555 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="docker,Rancher,influxDB,cAdvisor,Grafana,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="容器管理与容器监控😊">
+<meta name="keywords" content="docker,Rancher,influxDB,cAdvisor,Grafana">
+<meta property="og:type" content="article">
+<meta property="og:title" content="容器管理与容器监控">
+<meta property="og:url" content="https://www.babywang.huangsm.xyz/2019/02/03/容器管理与容器监控/index.html">
+<meta property="og:site_name" content="babybabywang">
+<meta property="og:description" content="容器管理与容器监控😊">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/03/容器管理与容器监控/Rancher环境管理.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/03/容器管理与容器监控/添加环境.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/03/容器管理与容器监控/三种环境.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/03/容器管理与容器监控/添加镜像库.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/03/容器管理与容器监控/添加主机拷贝脚本文件.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/03/容器管理与容器监控/脚本执行.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/03/容器管理与容器监控/主机显示.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/03/容器管理与容器监控/添加应用.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/03/容器管理与容器监控/填写名称和描述.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/03/容器管理与容器监控/新增的应用.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/03/容器管理与容器监控/添加服务.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/03/容器管理与容器监控/添加MYSQL环境变量.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/03/容器管理与容器监控/mysql服务构建成功.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/03/容器管理与容器监控/部署eureka服务.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/03/容器管理与容器监控/查看InfluxDB页面.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/03/容器管理与容器监控/创建数据库.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/03/容器管理与容器监控/创建Admin用户.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/03/容器管理与容器监控/查看用户.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/03/容器管理与容器监控/cadvisor采集数据.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/03/容器管理与容器监控/grafana登录页面.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/03/容器管理与容器监控/grafana主页面.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/03/容器管理与容器监控/grafana添加数据源.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/03/容器管理与容器监控/grafana数据源.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/03/容器管理与容器监控/grafana数据源数据填写.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/03/容器管理与容器监控/grafana添加仪表盘.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/03/容器管理与容器监控/grafana点击grafana.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/03/容器管理与容器监控/grafana编辑Graph.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/03/容器管理与容器监控/grafana基础服务内存监控.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/03/容器管理与容器监控/grafana监控rabbitmq.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/03/容器管理与容器监控/grafana指定y.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/03/容器管理与容器监控/grafana保存.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/03/容器管理与容器监控/预警通知1.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/03/容器管理与容器监控/预警通知2.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/03/容器管理与容器监控/预警通知3.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/03/容器管理与容器监控/仪表盘预警1.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/03/容器管理与容器监控/仪表盘预警2.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/03/容器管理与容器监控/仪表盘预警3.png">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/03/容器管理与容器监控/仪表盘预警4.png">
+<meta property="og:updated_time" content="2019-02-03T08:43:25.258Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="容器管理与容器监控">
+<meta name="twitter:description" content="容器管理与容器监控😊">
+<meta name="twitter:image" content="https://www.babywang.huangsm.xyz/2019/02/03/容器管理与容器监控/Rancher环境管理.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://www.babywang.huangsm.xyz/2019/02/03/容器管理与容器监控/">
+
+
+
+
+
+  <title>容器管理与容器监控 | babybabywang</title>
+  
+
+
+
+
+
+
+
+
+</head>
+<!-- С���� <script type="text/javascript" src="/js/src/love.js"></script> -->
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+		<a href="https://github.com/babybabywang" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">babybabywang</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">朽木自雕</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.babywang.huangsm.xyz/2019/02/03/容器管理与容器监控/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Huangsm">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blogHead.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="babybabywang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">容器管理与容器监控</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-03T12:02:07+08:00">
+                2019-02-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/docker/" itemprop="url" rel="index">
+                    <span itemprop="name">docker</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.5k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+              <div class="post-description">
+                  容器管理与容器监控😊
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="容器管理与容器监控"><a href="#容器管理与容器监控" class="headerlink" title="容器管理与容器监控"></a>容器管理与容器监控</h1><h2 id="容器管理工具Rancher"><a href="#容器管理工具Rancher" class="headerlink" title="容器管理工具Rancher"></a>容器管理工具Rancher</h2><h3 id="什么是Rancher"><a href="#什么是Rancher" class="headerlink" title="什么是Rancher"></a>什么是Rancher</h3><blockquote>
+<p>Rancher是一个开源的企业级全栈化容器部署及管理平台。Rancher为容器提供一揽子基础架构服务：CNI兼容的网络服务、存储服务、主机管理、负载均衡、防护墙……Rancher让上述服务跨越公有云、私有云、虚拟机、物理机环境运行，真正实现一键式应用部署和管理</p>
+</blockquote>
+<p><a href="https://www.cnrancher.com/" target="_blank" rel="noopener">Rancher官网</a></p>
+<h3 id="Rancher安装"><a href="#Rancher安装" class="headerlink" title="Rancher安装"></a>Rancher安装</h3><ul>
+<li>下载镜像</li>
+</ul>
+<blockquote>
+<p>docker pull rancher/server</p>
+</blockquote>
+<ul>
+<li>创建Rancher容器</li>
+</ul>
+<blockquote>
+<p>docker run -d –name=rancher –restart=always -p 9090:8080 rancher/server</p>
+</blockquote>
+<pre><code>restart为重启策略no，默认策略，在容器退出时不重启容器
+on-failure，在容器非正常退出时（退出状态非0），才会重启
+on-failure:3，在容器非正常退出时重启容器，最多重启3次
+always，在容器退出时总是重启容器
+unless-stopped，在容器退出时总是重启容器，但是不考虑在Docker守护进程启动时就已经停止了的
+</code></pre><ul>
+<li>测试</li>
+</ul>
+<blockquote>
+<p><a href="http://192.168.25.134:9090/" target="_blank" rel="noopener">http://192.168.25.134:9090/</a></p>
+</blockquote>
+<h3 id="Rancher初始化"><a href="#Rancher初始化" class="headerlink" title="Rancher初始化"></a>Rancher初始化</h3><h4 id="添加环境"><a href="#添加环境" class="headerlink" title="添加环境"></a>添加环境</h4><blockquote>
+<p>Rancher 支持将资源分组归属到多个环境。 每个环境具有自己独立的基础架构资源及服务，并由一个或多个用户、团队或组织所管理。例如，您可以创建独立的“开发”、“测试”及“生产”环境以确保环境之间的安全隔离，将“开发”环境的访问权限赋予全部人员，但限制“生产”环境的访问权限给一个小的团队。</p>
+<p>（1）选择“Default –&gt;环境管理</p>
+</blockquote>
+<p><img src="/2019/02/03/容器管理与容器监控/Rancher环境管理.png" alt="Rancher环境管理"></p>
+<blockquote>
+<p>（2）填写名称，点击”创建”按钮</p>
+</blockquote>
+<p><img src="/2019/02/03/容器管理与容器监控/添加环境.png" alt="添加环境"></p>
+<blockquote>
+<p>（3）按照上述步骤，添加服务测试环境和生产环境</p>
+</blockquote>
+<p><img src="/2019/02/03/容器管理与容器监控/三种环境.png" alt="三种环境"></p>
+<blockquote>
+<p>（4）你可以通过点击logo右侧的菜单在各种环境下</p>
+</blockquote>
+<h4 id="添加镜像库"><a href="#添加镜像库" class="headerlink" title="添加镜像库"></a>添加镜像库</h4><blockquote>
+<p>192.168.25.134</p>
+</blockquote>
+<p><img src="/2019/02/03/容器管理与容器监控/添加镜像库.png" alt="添加镜像库"></p>
+<h4 id="添加主机"><a href="#添加主机" class="headerlink" title="添加主机"></a>添加主机</h4><ul>
+<li>选择基础架构–&gt;主机 菜单，点击添加主机</li>
+<li>拷贝脚本</li>
+</ul>
+<p><img src="/2019/02/03/容器管理与容器监控/添加主机拷贝脚本文件.png" alt="添加主机拷贝脚本文件"></p>
+<ul>
+<li>在服务器（虚拟机）上运行脚本</li>
+</ul>
+<p><img src="/2019/02/03/容器管理与容器监控/脚本执行.png" alt="脚本执行"></p>
+<ul>
+<li>点击关闭按钮后，会看到界面中显示此主机。我们可以很方便地管理主机的每个容器的开启和关闭</li>
+</ul>
+<p><img src="/2019/02/03/容器管理与容器监控/主机显示.png" alt="主机显示"></p>
+<h4 id="添加应用-所有微服务的集合"><a href="#添加应用-所有微服务的集合" class="headerlink" title="添加应用(所有微服务的集合)"></a>添加应用(所有微服务的集合)</h4><ul>
+<li>点击应用–&gt;全部(或用户) ，点击”添加应用”按钮</li>
+</ul>
+<p><img src="/2019/02/03/容器管理与容器监控/添加应用.png" alt="添加应用"></p>
+<ul>
+<li>填写名称和描述</li>
+</ul>
+<p><img src="/2019/02/03/容器管理与容器监控/填写名称和描述.png" alt="填写名称和描述"></p>
+<ul>
+<li>点击”创建”按钮，列表中增加了新增的应用</li>
+</ul>
+<p><img src="/2019/02/03/容器管理与容器监控/新增的应用.png" alt="新增的应用"></p>
+<h3 id="应用部署"><a href="#应用部署" class="headerlink" title="应用部署"></a>应用部署</h3><h4 id="MySQL部署"><a href="#MySQL部署" class="headerlink" title="MySQL部署"></a>MySQL部署</h4><ul>
+<li>镜像：centos/mysql-57-centos7 增加数据库服务</li>
+</ul>
+<p><img src="/2019/02/03/容器管理与容器监控/添加服务.png" alt="添加服务"></p>
+<p><img src="/2019/02/03/容器管理与容器监控/添加MYSQL环境变量.png" alt="添加MYSQL环境变量"></p>
+<ul>
+<li>点击创建按钮，完成创建 上述操作相当于以下docker命令</li>
+</ul>
+<blockquote>
+<p>docker run ‐d ‐‐name mysql ‐p 3306:3306 ‐e MYSQL_ROOT_PASSWORD=mysql centos/mysql‐57‐centos</p>
+</blockquote>
+<p><img src="/2019/02/03/容器管理与容器监控/mysql服务构建成功.png" alt="mysql服务构建成功"></p>
+<h3 id="微服务容器部署"><a href="#微服务容器部署" class="headerlink" title="微服务容器部署"></a>微服务容器部署</h3><h4 id="Eureka微服务容器化部署"><a href="#Eureka微服务容器化部署" class="headerlink" title="Eureka微服务容器化部署"></a>Eureka微服务容器化部署</h4><ul>
+<li>在用户应用界面中点击”添加服务”</li>
+<li>填写名称、描述、镜像和端口映射，点击创建按钮</li>
+</ul>
+<p><img src="/2019/02/03/容器管理与容器监控/部署eureka服务.png" alt="部署eureka服务"></p>
+<ul>
+<li>服务添加成功</li>
+</ul>
+<h2 id="influxDB"><a href="#influxDB" class="headerlink" title="influxDB"></a>influxDB</h2><h3 id="什么是influxDB"><a href="#什么是influxDB" class="headerlink" title="什么是influxDB"></a>什么是influxDB</h3><blockquote>
+<p>influxDB是一个分布式时间序列数据库。cAdvisor仅仅显示实时信息，但是不存储监视数据。因此，我们需要提供时序数据库用于存储cAdvisor组件所提供的监控信息，以便显示除实时信息之外的时序数</p>
+</blockquote>
+<h3 id="influxDB安装"><a href="#influxDB安装" class="headerlink" title="influxDB安装"></a>influxDB安装</h3><ul>
+<li>下载镜像</li>
+</ul>
+<blockquote>
+<p>docker pull tutum/influxdb</p>
+</blockquote>
+<ul>
+<li>创建容器</li>
+</ul>
+<blockquote>
+<p>docker run -d -p 8083:8083 -p 8086:8086 –expose 8090 –expose 8099 –name influxsrv tutum/influxdb</p>
+</blockquote>
+<blockquote>
+<p>端口概述： 8083端口:web访问端口 8086:数据写入</p>
+</blockquote>
+<ul>
+<li><a href="http://192.168.25.134:8083/" target="_blank" rel="noopener">http://192.168.25.134:8083/</a></li>
+</ul>
+<p><img src="/2019/02/03/容器管理与容器监控/查看InfluxDB页面.png" alt="查看InfluxDB页面"></p>
+<h3 id="nfluxDB常用操作"><a href="#nfluxDB常用操作" class="headerlink" title="nfluxDB常用操作"></a>nfluxDB常用操作</h3><h4 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h4><p><img src="/2019/02/03/容器管理与容器监控/创建数据库.png" alt="创建数据库"></p>
+<p>####　创建用户并授权</p>
+<ul>
+<li>创建用户</li>
+</ul>
+<p><img src="/2019/02/03/容器管理与容器监控/创建Admin用户.png" alt="创建Admin用户"></p>
+<ul>
+<li>查看用户</li>
+</ul>
+<p><img src="/2019/02/03/容器管理与容器监控/查看用户.png" alt="查看用户"></p>
+<ul>
+<li><p>用户授权</p>
+<pre><code>grant all privileges on huangsm to huangsm
+grant WRITE on huangsm to huangsm
+grant READ on huangsm to huangsm
+</code></pre></li>
+</ul>
+<h4 id="查看采集的数据"><a href="#查看采集的数据" class="headerlink" title="查看采集的数据　"></a>查看采集的数据　</h4><blockquote>
+<p>SHOW MEASUREMEN</p>
+</blockquote>
+<h2 id="cAdvisor"><a href="#cAdvisor" class="headerlink" title="cAdvisor"></a>cAdvisor</h2><h3 id="什么是cAdvisor"><a href="#什么是cAdvisor" class="headerlink" title="什么是cAdvisor"></a>什么是cAdvisor</h3><blockquote>
+<p>Google开源的用于监控基础设施应用的工具，它是一个强大的监控工具，不需要任何配置就可以通过运行在Docker主机上的容器来监控Docker容器，而且可以监控Docker主机。更多详细操作和配置选项可以查看Github上的cAdvisor项目文档。</p>
+</blockquote>
+<h3 id="cAdvisor安装"><a href="#cAdvisor安装" class="headerlink" title="cAdvisor安装"></a>cAdvisor安装</h3><ul>
+<li>拉去镜像</li>
+</ul>
+<blockquote>
+<p>docker pull google/cadvisor</p>
+</blockquote>
+<ul>
+<li>启动容器</li>
+</ul>
+<pre><code>docker run -v=/:/rootfs:ro -v=/var/run:/var/run:rw -v=/sys:/sys:ro -v=/var/lib/docker/:/var/lib/docker:ro -p 8080:8080 --detach=true --link influxsrv:influxsrv --name=cadvisor google/cadvisor -storage_driver=influxdb -storage_driver_db=huangsm -storage_driver_host=influxsrv:8086
+</code></pre><blockquote>
+<p>WEB前端访问地址 <a href="http://192.168.25.134:8080/containers/" target="_blank" rel="noopener">http://192.168.25.134:8080/containers/</a></p>
+</blockquote>
+<p><a href="https://blog.csdn.net/ZHANG_H_A/article/details/53097084" target="_blank" rel="noopener">性能指标含义参照如下地址</a></p>
+<p>再次查看influxDB，发现已经有很多数据被采集进去</p>
+<p><img src="/2019/02/03/容器管理与容器监控/cadvisor采集数据.png" alt="cadvisor采集数据"></p>
+<h2 id="Grafana"><a href="#Grafana" class="headerlink" title="Grafana"></a>Grafana</h2><h3 id="什么是Grafana"><a href="#什么是Grafana" class="headerlink" title="什么是Grafana"></a>什么是Grafana</h3><blockquote>
+<p>Grafana是一个可视化面板（Dashboard），有着非常漂亮的图表和布局展示，功能齐全的度量仪表盘和图形编辑器。支持Graphite、zabbix、InfluxDB、Prometheus和OpenTSDB作为数据源。Grafana主要特性：灵活丰富的图形化选项；可以混合多种风格；支持白天和夜间模式；多个数据源。</p>
+</blockquote>
+<h3 id="Grafana安装"><a href="#Grafana安装" class="headerlink" title="Grafana安装"></a>Grafana安装</h3><ul>
+<li><p>下载镜像</p>
+<blockquote>
+<p>docker pull grafana/grafana</p>
+</blockquote>
+</li>
+<li><p>创建容器</p>
+</li>
+</ul>
+<blockquote>
+<p>docker run -d -p 3001:3000 -e INFLUXDB_HOST=influxsrv -e INFLUXDB_PORT=8086 -e INFLUXDB_NAME=cadvisor -e INFLUXDB_USER=huangsm -e INFLUXDB_PASS=1234 –link influxsrv:influxsrv –name=grafana  grafana/grafana</p>
+</blockquote>
+<ul>
+<li>访问(<a href="http://192.168.25.134:3001" target="_blank" rel="noopener">http://192.168.25.134:3001</a> 初始帐号密码都为admin)</li>
+</ul>
+<p><img src="/2019/02/03/容器管理与容器监控/grafana登录页面.png" alt="grafana登录页面"></p>
+<ul>
+<li>登录后提示你修改密码</li>
+<li>之后进入主页面</li>
+</ul>
+<p><img src="/2019/02/03/容器管理与容器监控/grafana主页面.png" alt="grafana主页面"></p>
+<h3 id="Grafana的使用"><a href="#Grafana的使用" class="headerlink" title="Grafana的使用"></a>Grafana的使用</h3><h4 id="添加数据源"><a href="#添加数据源" class="headerlink" title="添加数据源"></a>添加数据源</h4><ul>
+<li>点击设置，DataSource</li>
+</ul>
+<p><img src="/2019/02/03/容器管理与容器监控/grafana添加数据源.png" alt="grafana添加数据源"></p>
+<ul>
+<li>点击添加data source</li>
+</ul>
+<p><img src="/2019/02/03/容器管理与容器监控/grafana数据源.png" alt="grafana数据源"></p>
+<ul>
+<li>为数据源起个名称，指定类型、地址、以及连接的数据库名、用户名和密码</li>
+</ul>
+<p><img src="/2019/02/03/容器管理与容器监控/grafana数据源数据填写.png" alt="grafana数据源数据填写"></p>
+<h4 id="添加仪表盘"><a href="#添加仪表盘" class="headerlink" title="添加仪表盘"></a>添加仪表盘</h4><ul>
+<li>选择Dashboards –Manager</li>
+</ul>
+<p><img src="/2019/02/03/容器管理与容器监控/grafana添加仪表盘.png" alt="grafana添加仪表盘"></p>
+<ul>
+<li>点击“添加”按钮</li>
+<li>点击Graph图标</li>
+</ul>
+<p><img src="/2019/02/03/容器管理与容器监控/grafana点击grafana.png" alt="grafana点击grafana"></p>
+<ul>
+<li>出现下面图表的界面 ，点击Panel Title 选择Edit (编辑)</li>
+</ul>
+<p><img src="/2019/02/03/容器管理与容器监控/grafana编辑Graph.png" alt="grafana编辑Graph"></p>
+<ul>
+<li>定义标题等基础信息</li>
+</ul>
+<p><img src="/2019/02/03/容器管理与容器监控/grafana基础服务内存监控.png" alt="grafana基础服务内存监控"></p>
+<ul>
+<li>设置查询的信息为内存，指定容器名称</li>
+</ul>
+<p><img src="/2019/02/03/容器管理与容器监控/grafana监控rabbitmq.png" alt="grafana监控rabbitmq"></p>
+<ul>
+<li>指定y轴的单位 为M</li>
+</ul>
+<p><img src="/2019/02/03/容器管理与容器监控/grafana指定y.png" alt="grafana指定y"></p>
+<ul>
+<li>保存</li>
+</ul>
+<p><img src="/2019/02/03/容器管理与容器监控/grafana保存.png" alt="grafana保存"></p>
+<h4 id="预警通知设置"><a href="#预警通知设置" class="headerlink" title="预警通知设置"></a>预警通知设置</h4><ul>
+<li>选择菜单 alerting–&gt; Notification channels</li>
+</ul>
+<p><img src="/2019/02/03/容器管理与容器监控/预警通知1.png" alt="预警通知1"></p>
+<ul>
+<li>点击Add channel 按钮</li>
+</ul>
+<p><img src="/2019/02/03/容器管理与容器监控/预警通知2.png" alt="预警通知1"></p>
+<ul>
+<li>填写名称，选择类型为webhook ,填写钩子地址（这个钩子地址是之前对base微服务扩容的地址）</li>
+</ul>
+<p><img src="/2019/02/03/容器管理与容器监控/预警通知3.png" alt="预警通知1"></p>
+<ul>
+<li>点击SendTest 测试 观察基础微服务是否增加容器</li>
+<li>点击save保存</li>
+<li>按照同样的方法添加缩容地址<h4 id="仪表盘预警设置"><a href="#仪表盘预警设置" class="headerlink" title="仪表盘预警设置"></a>仪表盘预警设置</h4></li>
+<li>再次打开刚刚编辑的仪表盘</li>
+</ul>
+<p><img src="/2019/02/03/容器管理与容器监控/仪表盘预警1.png" alt="仪表盘预警1"></p>
+<ul>
+<li>点击 Create Alert</li>
+</ul>
+<p><img src="/2019/02/03/容器管理与容器监控/仪表盘预警2.png" alt="仪表盘预警2"></p>
+<ul>
+<li>选择通知</li>
+</ul>
+<p><img src="/2019/02/03/容器管理与容器监控/仪表盘预警3.png" alt="仪表盘预警3"></p>
+<p><img src="/2019/02/03/容器管理与容器监控/仪表盘预警4.png" alt="仪表盘预警4"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Adhere to the original technology sharing, your support will encourage me to continue to create!</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/wx.jpg" alt="Huangsm 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/zfb.jpg" alt="Huangsm 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/docker/" rel="tag"><i class="fa fa-tag"></i> docker</a>
+          
+            <a href="/tags/Rancher/" rel="tag"><i class="fa fa-tag"></i> Rancher</a>
+          
+            <a href="/tags/influxDB/" rel="tag"><i class="fa fa-tag"></i> influxDB</a>
+          
+            <a href="/tags/cAdvisor/" rel="tag"><i class="fa fa-tag"></i> cAdvisor</a>
+          
+            <a href="/tags/Grafana/" rel="tag"><i class="fa fa-tag"></i> Grafana</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/02/微服务的持续化部署/" rel="next" title="微服务的持续化部署">
+                <i class="fa fa-chevron-left"></i> 微服务的持续化部署
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/blogHead.jpg" alt="Huangsm">
+            
+              <p class="site-author-name" itemprop="name">Huangsm</p>
+              <p class="site-description motion-element" itemprop="description">一个平凡的JAVA后端攻城狮，一直在专研SpringCloud全家桶、Docker等技术，希望遇到更多志同道合的朋友。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">66</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/babybabywang" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/weixin_36964056" target="_blank" title="csdn">
+                      
+                        <i class="fa fa-fw fa-globe"></i>csdn</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://gitee.com/wangyuanbaby" target="_blank" title="码云">
+                      
+                        <i class="fa fa-fw fa-globe"></i>码云</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://gitee.com/wangyuanbaby" title="码云🐴" target="_blank">码云🐴</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.huangsm.xyz:7900/" title="Eureka服务器" target="_blank">Eureka服务器</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#容器管理与容器监控"><span class="nav-number">1.</span> <span class="nav-text">容器管理与容器监控</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#容器管理工具Rancher"><span class="nav-number">1.1.</span> <span class="nav-text">容器管理工具Rancher</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是Rancher"><span class="nav-number">1.1.1.</span> <span class="nav-text">什么是Rancher</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rancher安装"><span class="nav-number">1.1.2.</span> <span class="nav-text">Rancher安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rancher初始化"><span class="nav-number">1.1.3.</span> <span class="nav-text">Rancher初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#添加环境"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">添加环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加镜像库"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">添加镜像库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加主机"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">添加主机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加应用-所有微服务的集合"><span class="nav-number">1.1.3.4.</span> <span class="nav-text">添加应用(所有微服务的集合)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用部署"><span class="nav-number">1.1.4.</span> <span class="nav-text">应用部署</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MySQL部署"><span class="nav-number">1.1.4.1.</span> <span class="nav-text">MySQL部署</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#微服务容器部署"><span class="nav-number">1.1.5.</span> <span class="nav-text">微服务容器部署</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Eureka微服务容器化部署"><span class="nav-number">1.1.5.1.</span> <span class="nav-text">Eureka微服务容器化部署</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#influxDB"><span class="nav-number">1.2.</span> <span class="nav-text">influxDB</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是influxDB"><span class="nav-number">1.2.1.</span> <span class="nav-text">什么是influxDB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#influxDB安装"><span class="nav-number">1.2.2.</span> <span class="nav-text">influxDB安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nfluxDB常用操作"><span class="nav-number">1.2.3.</span> <span class="nav-text">nfluxDB常用操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建数据库"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">创建数据库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看采集的数据"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">查看采集的数据　</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cAdvisor"><span class="nav-number">1.3.</span> <span class="nav-text">cAdvisor</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是cAdvisor"><span class="nav-number">1.3.1.</span> <span class="nav-text">什么是cAdvisor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cAdvisor安装"><span class="nav-number">1.3.2.</span> <span class="nav-text">cAdvisor安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Grafana"><span class="nav-number">1.4.</span> <span class="nav-text">Grafana</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是Grafana"><span class="nav-number">1.4.1.</span> <span class="nav-text">什么是Grafana</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Grafana安装"><span class="nav-number">1.4.2.</span> <span class="nav-text">Grafana安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Grafana的使用"><span class="nav-number">1.4.3.</span> <span class="nav-text">Grafana的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#添加数据源"><span class="nav-number">1.4.3.1.</span> <span class="nav-text">添加数据源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加仪表盘"><span class="nav-number">1.4.3.2.</span> <span class="nav-text">添加仪表盘</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#预警通知设置"><span class="nav-number">1.4.3.3.</span> <span class="nav-text">预警通知设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#仪表盘预警设置"><span class="nav-number">1.4.3.4.</span> <span class="nav-text">仪表盘预警设置</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">huangsm</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
