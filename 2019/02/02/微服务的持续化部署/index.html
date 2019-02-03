@@ -127,7 +127,7 @@
 <meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/02/微服务的持续化部署/持续集成命令.png">
 <meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/02/微服务的持续化部署/jenkins持续继承配置.png">
 <meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/02/微服务的持续化部署/持续集成成功.png">
-<meta property="og:updated_time" content="2019-02-03T08:58:35.652Z">
+<meta property="og:updated_time" content="2019-02-03T09:04:59.923Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微服务的持续化部署">
 <meta name="twitter:description" content="微服务的持续化部署😊">
@@ -477,9 +477,7 @@
 <blockquote>
 <p>地址：<a href="https://gitee.com/Unknown/gogs" target="_blank" rel="noopener">https://gitee.com/Unknown/gogs</a></p>
 </blockquote>
-<p>###　Gogs安装与配置</p>
-<p>####　安装</p>
-<ul>
+<h3 id="Gogs安装与配置"><a href="#Gogs安装与配置" class="headerlink" title="Gogs安装与配置"></a>Gogs安装与配置</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><ul>
 <li><p>下载镜像</p>
 <p>  docker pull gogs/gogs</p>
 </li>
@@ -495,8 +493,7 @@
 <p><img src="/2019/02/02/微服务的持续化部署/gogs配置2.png" alt="微服务的持续化部署"></p>
 <p><strong>剩下的操作类似与码云和gitHub这里就不一一赘述了</strong></p>
 <p><img src="/2019/02/02/微服务的持续化部署/代码部署到gogs.png" alt="代码部署到gogs"></p>
-<h2 id="运用Jenkins实现持续集成"><a href="#运用Jenkins实现持续集成" class="headerlink" title="运用Jenkins实现持续集成"></a>运用Jenkins实现持续集成</h2><p>###　Jenkins简介</p>
-<blockquote>
+<h2 id="运用Jenkins实现持续集成"><a href="#运用Jenkins实现持续集成" class="headerlink" title="运用Jenkins实现持续集成"></a>运用Jenkins实现持续集成</h2><h3 id="Jenkins简介"><a href="#Jenkins简介" class="headerlink" title="Jenkins简介"></a>Jenkins简介</h3><blockquote>
 <p>Jenkins，原名Hudson，2011年改为现在的名字，它是一个开源的实现持续集成的软件工具。</p>
 </blockquote>
 <blockquote>
@@ -516,8 +513,7 @@
 <li>文件指纹信息：Jenkins会保存哪次集成构建产生了哪些jars文件，哪一次集成构建使用了哪个版本的jars文件等构建记录；</li>
 <li>支持第三方插件：使得 Jenkins 变得越来越</li>
 </ul>
-<p>###　Jenkins安装</p>
-<h4 id="JDK安装"><a href="#JDK安装" class="headerlink" title="JDK安装"></a>JDK安装</h4><ul>
+<h3 id="Jenkins安装"><a href="#Jenkins安装" class="headerlink" title="Jenkins安装"></a>Jenkins安装</h3><h4 id="JDK安装"><a href="#JDK安装" class="headerlink" title="JDK安装"></a>JDK安装</h4><ul>
 <li>将jdk-8u171-linux-x64.rpm上传至服务器（虚拟机）</li>
 <li><p>执行安装命令</p>
 <p>  rpm ‐ivh jdk‐8u171‐linux‐x64.rpm</p>
@@ -860,7 +856,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#理解持续集成"><span class="nav-number">1.</span> <span class="nav-text">理解持续集成</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是持续集成"><span class="nav-number">1.1.</span> <span class="nav-text">什么是持续集成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#持续集成的特点"><span class="nav-number">1.2.</span> <span class="nav-text">持续集成的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#持续集成作用"><span class="nav-number">1.3.</span> <span class="nav-text">持续集成作用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gogs"><span class="nav-number">2.</span> <span class="nav-text">Gogs</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是Gogs"><span class="nav-number">2.1.</span> <span class="nav-text">什么是Gogs</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置"><span class="nav-number">2.1.1.</span> <span class="nav-text">配置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运用Jenkins实现持续集成"><span class="nav-number">3.</span> <span class="nav-text">运用Jenkins实现持续集成</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JDK安装"><span class="nav-number">3.0.1.</span> <span class="nav-text">JDK安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Jenkins安装与启动"><span class="nav-number">3.0.2.</span> <span class="nav-text">Jenkins安装与启动</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Jenkins插件安装"><span class="nav-number">3.1.</span> <span class="nav-text">Jenkins插件安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全局工具配置"><span class="nav-number">3.2.</span> <span class="nav-text">全局工具配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#持续集成"><span class="nav-number">3.3.</span> <span class="nav-text">持续集成</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建任务"><span class="nav-number">3.3.1.</span> <span class="nav-text">创建任务</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#理解持续集成"><span class="nav-number">1.</span> <span class="nav-text">理解持续集成</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是持续集成"><span class="nav-number">1.1.</span> <span class="nav-text">什么是持续集成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#持续集成的特点"><span class="nav-number">1.2.</span> <span class="nav-text">持续集成的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#持续集成作用"><span class="nav-number">1.3.</span> <span class="nav-text">持续集成作用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gogs"><span class="nav-number">2.</span> <span class="nav-text">Gogs</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是Gogs"><span class="nav-number">2.1.</span> <span class="nav-text">什么是Gogs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gogs安装与配置"><span class="nav-number">2.2.</span> <span class="nav-text">Gogs安装与配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">2.2.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置"><span class="nav-number">2.2.2.</span> <span class="nav-text">配置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运用Jenkins实现持续集成"><span class="nav-number">3.</span> <span class="nav-text">运用Jenkins实现持续集成</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Jenkins简介"><span class="nav-number">3.1.</span> <span class="nav-text">Jenkins简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Jenkins安装"><span class="nav-number">3.2.</span> <span class="nav-text">Jenkins安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JDK安装"><span class="nav-number">3.2.1.</span> <span class="nav-text">JDK安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Jenkins安装与启动"><span class="nav-number">3.2.2.</span> <span class="nav-text">Jenkins安装与启动</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Jenkins插件安装"><span class="nav-number">3.3.</span> <span class="nav-text">Jenkins插件安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全局工具配置"><span class="nav-number">3.4.</span> <span class="nav-text">全局工具配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#持续集成"><span class="nav-number">3.5.</span> <span class="nav-text">持续集成</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建任务"><span class="nav-number">3.5.1.</span> <span class="nav-text">创建任务</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
