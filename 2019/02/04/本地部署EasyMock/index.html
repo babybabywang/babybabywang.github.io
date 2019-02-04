@@ -113,7 +113,7 @@
 <meta property="og:site_name" content="babybabywang">
 <meta property="og:description" content="本地部署EasyMock😊">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-04T05:20:44.081Z">
+<meta property="og:updated_time" content="2019-02-04T05:25:36.836Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="本地部署EasyMock">
 <meta name="twitter:description" content="本地部署EasyMock😊">
@@ -444,11 +444,27 @@
 <li>将node官网下载的压缩包上传到服务器</li>
 <li>解压xz文件</li>
 </ul>
-<figure class="highlight plain"><figcaption><span>-d node-v8.11.1-linux-x64.tar.xz```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 解压tar文件</span><br><span class="line"></span><br><span class="line">```tar -xvf node-v8.11.1-linux-x64.tar.xz</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>xz -d node-v8.11.1-linux-x64.tar.xz</p>
+</blockquote>
+<ul>
+<li>解压tar文件</li>
+</ul>
+<blockquote>
+<p>tar -xvf node-v8.11.1-linux-x64.tar.xz</p>
+</blockquote>
 <ul>
 <li>目录重命名</li>
 </ul>
-<figure class="highlight plain"><figcaption><span>node-v8.11.1-linux-x64 node```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 配置环境变量</span><br><span class="line"></span><br><span class="line">```vi /etc/profile</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>mv node-v8.11.1-linux-x64 node</p>
+</blockquote>
+<ul>
+<li>配置环境变量</li>
+</ul>
+<blockquote>
+<p>vi /etc/profile</p>
+</blockquote>
 <blockquote>
 <p>export NODE_HOME=~/node </p>
 <p>export PATH=$NODE_HOME/bin:$PA</p>
@@ -456,7 +472,15 @@
 <ul>
 <li>执行命令让环境变量生效</li>
 </ul>
-<figure class="highlight plain"><figcaption><span>/etc/profile```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 查看node版本看是否安装成功</span><br><span class="line"></span><br><span class="line">```node -v</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>source /etc/profile</p>
+</blockquote>
+<ul>
+<li>查看node版本看是否安装成功</li>
+</ul>
+<blockquote>
+<p>node -v</p>
+</blockquote>
 <h2 id="MongoDB安装与启动"><a href="#MongoDB安装与启动" class="headerlink" title="MongoDB安装与启动"></a>MongoDB安装与启动</h2><p><em>我们使用yum方式安装mongo</em></p>
 <pre><code>1.配置yum
 vi /etc/yum.repos.d/mongodb‐org‐3.2.repo
