@@ -1,0 +1,1688 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="ElementUI,vue,nodejs,npm,easymock,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="ElementUI的概念和基本控件的使用😊">
+<meta name="keywords" content="ElementUI,vue,nodejs,npm,easymock">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ElementUI的概念和基本控件的使用">
+<meta property="og:url" content="https://www.babywang.huangsm.xyz/2019/02/04/ElementUI的概念和基本控件的使用/index.html">
+<meta property="og:site_name" content="babybabywang">
+<meta property="og:description" content="ElementUI的概念和基本控件的使用😊">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://www.babywang.huangsm.xyz/2019/02/04/ElementUI的概念和基本控件的使用/脚手架结构.png">
+<meta property="og:updated_time" content="2019-02-04T10:02:34.373Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ElementUI的概念和基本控件的使用">
+<meta name="twitter:description" content="ElementUI的概念和基本控件的使用😊">
+<meta name="twitter:image" content="https://www.babywang.huangsm.xyz/2019/02/04/ElementUI的概念和基本控件的使用/脚手架结构.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://www.babywang.huangsm.xyz/2019/02/04/ElementUI的概念和基本控件的使用/">
+
+
+
+
+
+  <title>ElementUI的概念和基本控件的使用 | babybabywang</title>
+  
+
+
+
+
+
+
+
+
+</head>
+<!-- С���� <script type="text/javascript" src="/js/src/love.js"></script> -->
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+		<a href="https://github.com/babybabywang" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">babybabywang</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">朽木自雕</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.babywang.huangsm.xyz/2019/02/04/ElementUI的概念和基本控件的使用/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Huangsm">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blogHead.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="babybabywang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ElementUI的概念和基本控件的使用</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-04T13:32:43+08:00">
+                2019-02-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/ElementUI/" itemprop="url" rel="index">
+                    <span itemprop="name">ElementUI</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+              <div class="post-description">
+                  ElementUI的概念和基本控件的使用😊
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="ElementUI"><a href="#ElementUI" class="headerlink" title="ElementUI"></a>ElementUI</h1><h2 id="什么是ElementUI"><a href="#什么是ElementUI" class="headerlink" title="什么是ElementUI"></a>什么是ElementUI</h2><blockquote>
+<p>element 饿了么前端出品的一套 Vue.js 后台组件库</p>
+</blockquote>
+<p><a href="http://element-cn.eleme.io/#/zh-CN" target="_blank" rel="noopener">官网</a></p>
+<h2 id="神器的脚手架"><a href="#神器的脚手架" class="headerlink" title="神器的脚手架"></a>神器的脚手架</h2><h3 id="快速搭建"><a href="#快速搭建" class="headerlink" title="快速搭建"></a>快速搭建</h3><blockquote>
+<p>官网上提供了非常基础的脚手架，如果我们使用官网的脚手架需要自己写很多代码比如登录页面、主界面菜单等内容。课程已经提供了功能完整的脚手架，我们可以拿过来在此基础上开发、这样可以极大节省我们开发的时间。</p>
+</blockquote>
+<pre><code>1.解压vueAdmin-template-master
+2.在命令提示符进入该目录，输入命令：
+cnpm install
+3.输入命令:
+npm run dev
+</code></pre><h3 id="了解工程结构"><a href="#了解工程结构" class="headerlink" title="了解工程结构"></a>了解工程结构</h3><p><strong>以下是主要的目录结构：</strong></p>
+<p><img src="/2019/02/04/ElementUI的概念和基本控件的使用/脚手架结构.png" alt="脚手架结构"></p>
+<h2 id="项目初始化"><a href="#项目初始化" class="headerlink" title="项目初始化"></a>项目初始化</h2><h3 id="关闭语法规范性检查"><a href="#关闭语法规范性检查" class="headerlink" title="关闭语法规范性检查"></a>关闭语法规范性检查</h3><blockquote>
+<p>修改config/index.js ，将useEslint的值改为false。<br>此配置作用: 是否开启语法检查，语法检查是通过ESLint 来实现的。<br>我们现在科普一下,什么是ESLint : ESLint 是一个语法规则和代码风格的检查工具，可以<br>用来保证写出语法正确、风格统一的代码。如果我们开启了Eslint , 也就意味着要接受它<br>非常苛刻的语法检查，包括空格不能少些或多些，必须单引不能双引，语句后不可以写<br>分号等等，这些规则其实是可以设置的。我们作为前端的初学者，最好先关闭这种校<br>验，否则会浪费很多精力在语法的规范性上。如果以后做真正的企业级开发，建议开启。</p>
+</blockquote>
+<h3 id="对接Easy-Mock"><a href="#对接Easy-Mock" class="headerlink" title="对接Easy-Mock"></a>对接Easy-Mock</h3><pre><code>1.修改config下的dev.env.js中的BASE_API为easy-mock的Base URL
+
+BASE_API: &apos;&quot;https://www.easy-mock.com/mock/5c57b3a6de5c260cd71d3b8d&quot;&apos;
+2.准备对应的user/login和user/info接口
+</code></pre><h3 id="更改标题与菜单"><a href="#更改标题与菜单" class="headerlink" title="更改标题与菜单"></a>更改标题与菜单</h3><pre><code>1.修改index.html里的标题为&quot;Element学习&quot;，修改后浏览器自动刷新。
+这就是脚手架中已经为我们添加了热部署功能。
+2.修改src/router 下的index.js 中constantRouterMap的内容
+</code></pre><h2 id="活动管理-列表"><a href="#活动管理-列表" class="headerlink" title="活动管理-列表"></a>活动管理-列表</h2><h3 id="表格组件"><a href="#表格组件" class="headerlink" title="表格组件"></a>表格组件</h3><pre><code>1.在src/api创建gathering.js
+//封装对restFul接口的访问
+const group_name=&apos;api&apos;;
+
+import request from &apos;@/utils/request&apos;
+export default {
+    getList(){
+        return request(
+            {
+                url:&apos;/api/gathering&apos;,
+                method:&apos;get&apos;
+            }
+        );
+    }
+}
+
+2.创建gathering.vue中 ，编写脚本部分
+
+&lt;script&gt;
+import gatheringApi from &quot;@/api/gathering&quot;;
+export default {
+  //定义成员变量，定义页面属性
+  data() {
+    return {
+      //接收列表
+      list: []
+    };
+  },
+  //钩子函数
+  created () {
+    this.feechData();  
+  },
+  //所有的方法
+  methods: {
+    feechData() {
+      gatheringApi.getList().then(response =&gt; {
+        this.list = response.data;
+      });
+    }
+  }
+};
+&lt;/script&gt;
+
+3.修改gathering.vue，编写html代码部分
+
+&lt;!--
+template:模版区视图区
+    - table控件
+script:逻辑区(控制视图区的显示)
+--&gt;
+&lt;template&gt;
+  &lt;el-table :data=&quot;list&quot; border style=&quot;width: 100%&quot;&gt;
+    &lt;el-table-column prop=&quot;id&quot; label=&quot;活动ID&quot; width=&quot;180&quot;&gt;&lt;/el-table-column&gt;
+    &lt;el-table-column prop=&quot;name&quot; label=&quot;活动名称&quot; width=&quot;180&quot;&gt;&lt;/el-table-column&gt;
+    &lt;el-table-column prop=&quot;sponsor&quot; label=&quot;主办方&quot; width=&quot;180&quot;&gt;&lt;/el-table-column&gt; 
+    &lt;el-table-column prop=&quot;starttime&quot; label=&quot;开始时间&quot; width=&quot;180&quot;&gt;&lt;/el-table-column&gt;
+    &lt;el-table-column prop=&quot;endtime&quot; label=&quot;结束时间&quot; width=&quot;180&quot;&gt;&lt;/el-table-column&gt;
+  &lt;/el-table&gt;
+&lt;/template&gt;
+</code></pre><p><a href="http://element-cn.eleme.io/#/zh-CN/component/table" target="_blank" rel="noopener">table的属性官方文档</a></p>
+<h3 id="分页组件"><a href="#分页组件" class="headerlink" title="分页组件"></a>分页组件</h3><p><em>我们已经通过表格组件完成了列表的展示，接下来需要使用分页组件完成分页功能</em></p>
+<p><em>准备工作：修改接口/gathering/gathering/search/{page}/{size} method:POST</em></p>
+<pre><code>1.修改src/api/gathering.js，增加方法导出
+
+ //分页查询
+getListByPage(page,size,searchMap){
+    return request({
+        url:&apos;/api/gathering/search/{page}/{size}&apos;,
+        method:&apos;post&apos;,
+        data:searchMap
+    });
+}
+
+2.修改src/views/table/gathering.vue，编写脚本部分
+
+import gatheringApi from &quot;@/api/gathering&quot;;
+export default {
+  //定义成员变量，定义页面属性
+  data() {
+    return {
+      //接收列表
+      total:0,//总记录数
+      list: [],
+      cuurentPage: 1,//当前页
+      pageSize: 10,  //每页大小
+      searchMap:{}//查询条件
+    };
+  },
+  //钩子函数
+  created() {
+    this.feechData();
+  },
+  //所有的方法
+  methods: {
+    feechData() {
+      gatheringApi.getListByPage(this.cuurentPage,this.pageSize,this.searchMap).then(response =&gt; {
+        this.list = response.data.rows;
+        this.total=response.data.total;
+      });
+    }
+  }
+};
+
+3.修改src/views/table/gathering.vue，增加分页栏
+
+
+  &lt;div&gt;
+    &lt;el-table :data=&quot;list&quot; border style=&quot;width: 100%&quot;&gt;
+      &lt;el-table-column prop=&quot;id&quot; label=&quot;活动ID&quot; width=&quot;180&quot;&gt;&lt;/el-table-column&gt;
+      &lt;el-table-column prop=&quot;name&quot; label=&quot;活动名称&quot; width=&quot;180&quot;&gt;&lt;/el-table-column&gt;
+      &lt;el-table-column prop=&quot;sponsor&quot; label=&quot;主办方&quot; width=&quot;180&quot;&gt;&lt;/el-table-column&gt;
+      &lt;el-table-column prop=&quot;starttime&quot; label=&quot;开始时间&quot; width=&quot;180&quot;&gt;&lt;/el-table-column&gt;
+      &lt;el-table-column prop=&quot;endtime&quot; label=&quot;结束时间&quot; width=&quot;180&quot;&gt;&lt;/el-table-column&gt;
+    &lt;/el-table&gt;
+    &lt;el-pagination
+      @size-change=&quot;feechData&quot;
+      @current-change=&quot;feechData&quot;
+      :current-page=&quot;cuurentPage&quot;
+      :page-sizes=&quot;[5, 10, 20]&quot;
+      :page-size=&quot;10&quot;
+      layout=&quot;total, sizes, prev, pager, next, jumper&quot;
+      :total=&quot;total&quot;
+    &gt;&lt;/el-pagination&gt;
+  &lt;/div&gt;
+
+currentPage为当前页 ， 
+total为总记录数注意：template里面要求必须有唯一的跟节点，我们这里用div将表格和分页控件包起来。
+</code></pre><p><a href="http://element-cn.eleme.io/#/zh-CN/component/pagination#pagination-fen-ye" target="_blank" rel="noopener">分页控件官方文档</a></p>
+<h3 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a>条件查询</h3><pre><code>1.修改src/views/table/gathering.vue，增加查询表单
+
+&lt;br&gt;
+&lt;el-form :inline=&quot;true&quot;&gt;
+  &lt;el-form-item label=&quot;活动名称&quot;&gt;
+    &lt;el-input v-model=&quot;searchMap.name&quot; placeholder=&quot;活动名称&quot;&gt;&lt;/el-input&gt;
+  &lt;/el-form-item&gt;
+  &lt;el-form-item label=&quot;开始日期&quot;&gt;
+    &lt;el-date-picker v-model=&quot;searchMap.starttime_1&quot; type=&quot;date&quot; placeholder=&quot;选择开始日期&quot;&gt;&lt;/el-date-picker&gt;
+    &lt;el-date-picker v-model=&quot;searchMap.starttime_2&quot; type=&quot;date&quot; placeholder=&quot;选择截至日期&quot;&gt;&lt;/el-date-picker&gt;
+  &lt;/el-form-item&gt;
+  &lt;el-button type=&quot;primary&quot; @click=&quot;feechData&quot;&gt;查询&lt;/el-button&gt;
+&lt;/el-form&gt;
+</code></pre><p><a href="http://element-cn.eleme.io/#/zh-CN/component/form" target="_blank" rel="noopener">表单组件</a></p>
+<p><a href="http://element-cn.eleme.io/#/zh-CN/component/input" target="_blank" rel="noopener">Input 输入框</a></p>
+<p><a href="http://element-cn.eleme.io/#/zh-CN/component/date-picker" target="_blank" rel="noopener">日期选择器组件</a></p>
+<h2 id="活动管理-增加"><a href="#活动管理-增加" class="headerlink" title="活动管理-增加"></a>活动管理-增加</h2><h3 id="弹出窗口"><a href="#弹出窗口" class="headerlink" title="弹出窗口"></a>弹出窗口</h3><pre><code>1.修改src/api/gathering.js，在template中增加对话框组件
+ &lt;el-dialog title=&quot;编辑&quot; :visible.sync=&quot;dislogFormVisble&quot;&gt;
+
+&lt;/el-dialog&gt;
+2.变量dialogFormVisible用于控制对话框的显示。我们在脚本代码中定义
+ return {
+  .....
+  dislogFormVisble: false //编辑窗口是否可见
+  ....
+};
+3.template中增加按钮，用于打开对话框
+&lt;el-button type=&quot;primary&quot; @click=&quot;dislogFormVisble=true&quot;&gt;新增&lt;/el-button&gt;
+</code></pre><p><a href="http://element-cn.eleme.io/#/zh-CN/component/dialog" target="_blank" rel="noopener">diglog组件文档</a></p>
+<h3 id="编辑表单"><a href="#编辑表单" class="headerlink" title="编辑表单"></a>编辑表单</h3><pre><code>1.修改src/views/table/gathering.vue，在弹出窗口添加编辑
+
+&lt;el-dialog title=&quot;编辑&quot; :visible.sync=&quot;dislogFormVisble&quot;&gt;
+  &lt;el-form label-width=&quot;80px&quot;&gt;
+    &lt;el-form-item label=&quot;活动名称&quot;&gt;
+      &lt;el-input v-model=&quot;pojo.name&quot; placeholder=&quot;活动名称&quot;&gt;&lt;/el-input&gt;
+    &lt;/el-form-item&gt;
+    &lt;el-form-item label=&quot;基本地址&quot;&gt;
+      &lt;el-input v-model=&quot;pojo.address&quot; placeholder=&quot;基本地址&quot;&gt;&lt;/el-input&gt;
+    &lt;/el-form-item&gt;
+    &lt;el-form-item label=&quot;开始日期&quot;&gt;
+      &lt;el-date-picker type=&quot;date&quot; v-model=&quot;pojo.starttime&quot; placeholder=&quot;开始日期&quot;&gt;&lt;/el-date-picker&gt;
+    &lt;/el-form-item&gt;
+    &lt;el-form-item label=&quot;截至日期&quot;&gt;
+      &lt;el-date-picker type=&quot;date&quot; v-model=&quot;pojo.endtime&quot; placeholder=&quot;截至日期&quot;&gt;&lt;/el-date-picker&gt;
+    &lt;/el-form-item&gt;
+    &lt;el-form-item label=&quot;报名截至&quot;&gt;
+      &lt;el-date-picker type=&quot;date&quot; v-model=&quot;pojo.enrolltime&quot; placeholder=&quot;报名截至&quot;&gt;&lt;/el-date-picker&gt;
+    &lt;/el-form-item&gt;
+    &lt;el-form-item label=&quot;活动详情&quot;&gt;
+      &lt;el-input v-model=&quot;pojo.detail&quot; placeholder=&quot;活动详情&quot; type=&quot;textarea&quot; :rows=&quot;2&quot;&gt;&lt;/el-input&gt;
+    &lt;/el-form-item&gt;
+    &lt;el-form-item label=&quot;是否可见&quot;&gt;
+      &lt;el-switch
+        v-model=&quot;pojo.status&quot;
+        active-value=&quot;1&quot;
+        inactive-value=&quot;0&quot;
+        active-color=&quot;#13ce66&quot;
+        inactive-color=&quot;#ff4949&quot;
+      &gt;&lt;/el-switch&gt;
+      &lt;el-form-item&gt;
+          &lt;el-button type=&quot;primary&quot;&gt;保存&lt;/el-button&gt;
+          &lt;el-button @click=&quot;dislogFormVisble=false&quot; type=&quot;danger&quot;&gt;关闭&lt;/el-button&gt;
+      &lt;/el-form-item&gt;
+    &lt;/el-form-item&gt;
+  &lt;/el-form&gt;
+&lt;/el-dialog&gt;
+</code></pre><p><strong>这里我们主要要掌握多行文本编辑框与开关组件switch的使用</strong></p>
+<h3 id="下拉选择框"><a href="#下拉选择框" class="headerlink" title="下拉选择框"></a>下拉选择框</h3><pre><code>1.创建src/api/city.js
+//城市模块
+
+const group_name = &apos;base&apos;;
+const method_name = &apos;city&apos;;
+
+import request from &apos;@/utils/request&apos;
+export default {
+    getList() {
+        return request({
+            url: `/${group_name}/${method_name}`,
+            method: &apos;get&apos;
+        })
+    }
+}
+2.修改src/views/table/gathering.vue的js脚本部分
+
+ cityApi.getList().then(response =&gt; {
+  this.cityList = response.data;
+});
+
+ cityList: [] //城市列表
+
+3.修改src/views/table/gathering.vue，增加城市下拉框
+
+  &lt;el-form-item label=&quot;城市&quot;&gt;
+      &lt;el-select v-model=&quot;pojo.city&quot; placeholder=&quot;选择城市&quot;&gt;
+        &lt;el-option
+          v-for=&quot;item in cityList&quot;
+          :key=&quot;item.id&quot;
+          :label=&quot;item.name&quot;
+          :value=&quot;item.id&quot;
+        &gt;&lt;/el-option&gt;
+      &lt;/el-select&gt;
+    &lt;/el-form-item&gt;
+</code></pre><h3 id="提交表单"><a href="#提交表单" class="headerlink" title="提交表单"></a>提交表单</h3><pre><code>1.修改easymock中的/gathering/gathering （增加活动 POST）
+
+{
+  &quot;code&quot;: 20000,
+  &quot;flag&quot;: true,
+  &quot;message&quot;: &quot;增加成功&quot;
+}
+2.修改src/api/gathering.js，增加方法导出
+
+//保存
+save(pojo){
+    return request({
+        url:`/${group_name}/${method_name}`,
+        method:&apos;post&apos;,
+        data:pojo
+    })
+}
+3.修改src/views/table/gathering.vue的js脚本部分 增加方法执行保存
+ saveData() {
+  gatheringApi.save(this.pojo).then(response =&gt; {
+    alert(response.message);
+    if (response.code == 20000) {
+      this.feechData(); //刷新列表
+    }
+  });
+  this.dislogFormVisble = false; //关闭窗口
+}
+
+&lt;el-button type=&quot;primary&quot; @click=&quot;saveData()&quot;&gt;保存&lt;/el-button&gt;
+</code></pre><h3 id="活动管理-修改"><a href="#活动管理-修改" class="headerlink" title="活动管理-修改"></a>活动管理-修改</h3><p><strong>在表格的操作列增加”修改”按钮，点击修改按钮弹出窗口并显示数据，点击保存按钮保存修改并刷新</strong></p>
+<h4 id="根据ID加载数据"><a href="#根据ID加载数据" class="headerlink" title="根据ID加载数据"></a>根据ID加载数据</h4><pre><code>1.修改easymock 接口 /gathering/gathering/{id} （GET）
+{
+  &quot;code&quot;: 20000,
+  &quot;flag&quot;: true,
+  &quot;message&quot;: &quot;查询成功&quot;,
+  &quot;data&quot;: {
+    &quot;id|+1&quot;: 1,
+    &quot;name&quot;: &quot;@cword(8,12)&quot;,
+    &quot;summary&quot;: &quot;@cword(20,40)&quot;,
+    &quot;detail&quot;: &quot;@cword(20,40)&quot;,
+    &quot;sponsor&quot;: &quot;@string&quot;,
+    &quot;image&quot;: &quot;@image&quot;,
+    &quot;starttime&quot;: &quot;@date&quot;,
+    &quot;endtime&quot;: &quot;@date&quot;,
+    &quot;address&quot;: &quot;@county(true)&quot;,
+    &quot;enrolltime&quot;: &quot;@date&quot;,
+    &quot;state&quot;: &quot;@string&quot;,
+    &quot;city&quot;: &quot;@string&quot;
+  }
+}
+2.修改src/api/gathering.js，增加方法定义
+ //根据ID查询活动信息
+findById(id){
+    return request({
+        url:`/${group_name}/${method_name}/${id}`,
+        method:&apos;get&apos;
+    })
+}
+3.修改src/views/table/gathering.vue的js脚本部分
+新增handleEdit方法
+
+  //根据ID查询活动信息
+handleEdit(id) {
+  //打开编辑窗口
+  this.dislogFormVisble = true;
+  if (id != &quot;&quot;) {//修改数据
+    gatheringApi.findById(id).then(response =&gt; {
+      if ((response.flag = true)) {
+        //定义实体，用于数据回显
+        this.pojo = response.data;
+      }
+    });
+  }else{
+      this.pojo={};
+  }
+}
+4.在表格table中增加模板列 ,模板列中防止修改按钮，调用handleEdit方法
+
+ &lt;el-table-column fixed=&quot;right&quot; label=&quot;操作&quot; width=&quot;100&quot;&gt;
+    &lt;template slot-scope=&quot;scope&quot;&gt;
+      &lt;el-button @click=&quot;handleEdit(scope.row.id)&quot; type=&quot;text&quot; size=&quot;small&quot;&gt;修改&lt;/el-button&gt;
+    &lt;/template&gt;
+  &lt;/el-table-column&gt;
+</code></pre><h4 id="新增窗口表单清空"><a href="#新增窗口表单清空" class="headerlink" title="新增窗口表单清空"></a>新增窗口表单清空</h4><pre><code>&lt;el-button type=&quot;primary&quot; @click=&quot;handleEdit(&apos;&apos;)&quot;&gt;新增&lt;/el-button&gt;
+</code></pre><h4 id="保存修改"><a href="#保存修改" class="headerlink" title="保存修改"></a>保存修改</h4><pre><code>准备工作：修改easymock 接口 /gathering/gathering/{id} （PUT)
+{
+  &quot;code&quot;: 20000,
+  &quot;flag&quot;: true,
+  &quot;message&quot;: &quot;修改成功&quot;
+}
+
+1.在gatherging.js添加update方法
+ //根据ID修改活动信息
+update(id,pojo){
+    //优化
+    if(id==null||id==&apos;&apos;){
+        return this.save(pojo);
+    }
+    return request({
+        url:`/${group_name}/${method_name}/${id}`,
+        method:&apos;put&apos;,
+        data:pojo
+    })
+}
+2.在gatherging.vue调用update方法
+  saveData() {
+  gatheringApi.update(this.id, this.pojo).then(response =&gt; {
+    alert(response.message);
+    if (response.flag) {
+      this.feechData();
+    }
+  });
+
+  this.dislogFormVisble = false; //关闭窗口
+}
+</code></pre><h4 id="消息提示框"><a href="#消息提示框" class="headerlink" title="消息提示框"></a>消息提示框</h4><pre><code>js原生的alert简直是丑爆了，有没有更漂亮的弹出框呀！当然有，用了elementUI提供了消息提示框！ 
+alert(response.message)可以替换为以下代码：
+
+this.$message({
+  message: response.message,
+  type: (response.flag?&apos;success&apos;:&apos;error&apos;)
+});
+</code></pre><p><a href="http://element-cn.eleme.io/#/zh-CN/component/message" target="_blank" rel="noopener">message组件文档</a></p>
+<h3 id="活动管理-删除"><a href="#活动管理-删除" class="headerlink" title="活动管理-删除"></a>活动管理-删除</h3><h4 id="EasyMock接口"><a href="#EasyMock接口" class="headerlink" title="EasyMock接口"></a>EasyMock接口</h4><pre><code>URL:gathering/:id Method: delete
+{
+  &quot;code&quot;: 20000,
+  &quot;flag&quot;: true,
+  &quot;message&quot;: &quot;删除成功&quot;
+}
+</code></pre><h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><pre><code>1.修改src/api/gathering.js，增加方法定义
+//根据ID删除活动信息
+deleteById(id){
+    return request({
+        url:`/${group_name}/${method_name}/${id}`,
+        method:&apos;delete&apos;
+    })
+}
+2.修改src/views/table/gathering.vue的js脚本部分
+增加方法
+  //根据ID删除活动信息
+deleteById(id) {
+  this.$confirm(&quot;确定要删除此记录吗?&quot;, &quot;提示&quot;, {
+    confirmButtonText: &quot;确定&quot;,
+    cancelButtonText: &quot;取消&quot;,
+    type: &quot;warning&quot;
+  })
+    .then(() =&gt; {
+      gatheringApi.deleteById(id).then(response =&gt; {
+        this.$message({
+          message: response.message,
+          type: response.flag ? &quot;success&quot; : &quot;error&quot;
+        });
+        if (response.flag) {
+          this.feechData(); //刷新数据
+        }
+      });
+    })
+    .catch(() =&gt; {});
+}
+
+3.修改src/views/table/gathering.vue ，在操作列增加删除按钮
+ &lt;el-button @click=&quot;deleteById(scope.row.id)&quot; type=&quot;text&quot; size=&quot;small&quot;&gt;删除&lt;/el-button&gt;
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Adhere to the original technology sharing, your support will encourage me to continue to create!</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/wx.jpg" alt="Huangsm 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/zfb.jpg" alt="Huangsm 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ElementUI/" rel="tag"><i class="fa fa-tag"></i> ElementUI</a>
+          
+            <a href="/tags/vue/" rel="tag"><i class="fa fa-tag"></i> vue</a>
+          
+            <a href="/tags/nodejs/" rel="tag"><i class="fa fa-tag"></i> nodejs</a>
+          
+            <a href="/tags/npm/" rel="tag"><i class="fa fa-tag"></i> npm</a>
+          
+            <a href="/tags/easymock/" rel="tag"><i class="fa fa-tag"></i> easymock</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/04/本地部署EasyMock/" rel="next" title="本地部署EasyMock">
+                <i class="fa fa-chevron-left"></i> 本地部署EasyMock
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/blogHead.jpg" alt="Huangsm">
+            
+              <p class="site-author-name" itemprop="name">Huangsm</p>
+              <p class="site-description motion-element" itemprop="description">一个平凡的JAVA后端攻城狮，一直在专研SpringCloud全家桶、Docker等技术，希望遇到更多志同道合的朋友。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">80</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/babybabywang" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/weixin_36964056" target="_blank" title="csdn">
+                      
+                        <i class="fa fa-fw fa-globe"></i>csdn</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://gitee.com/wangyuanbaby" target="_blank" title="码云">
+                      
+                        <i class="fa fa-fw fa-globe"></i>码云</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://gitee.com/wangyuanbaby" title="码云🐴" target="_blank">码云🐴</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.huangsm.xyz:7900/" title="Eureka服务器" target="_blank">Eureka服务器</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ElementUI"><span class="nav-number">1.</span> <span class="nav-text">ElementUI</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是ElementUI"><span class="nav-number">1.1.</span> <span class="nav-text">什么是ElementUI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#神器的脚手架"><span class="nav-number">1.2.</span> <span class="nav-text">神器的脚手架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#快速搭建"><span class="nav-number">1.2.1.</span> <span class="nav-text">快速搭建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#了解工程结构"><span class="nav-number">1.2.2.</span> <span class="nav-text">了解工程结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目初始化"><span class="nav-number">1.3.</span> <span class="nav-text">项目初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关闭语法规范性检查"><span class="nav-number">1.3.1.</span> <span class="nav-text">关闭语法规范性检查</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对接Easy-Mock"><span class="nav-number">1.3.2.</span> <span class="nav-text">对接Easy-Mock</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更改标题与菜单"><span class="nav-number">1.3.3.</span> <span class="nav-text">更改标题与菜单</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#活动管理-列表"><span class="nav-number">1.4.</span> <span class="nav-text">活动管理-列表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#表格组件"><span class="nav-number">1.4.1.</span> <span class="nav-text">表格组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分页组件"><span class="nav-number">1.4.2.</span> <span class="nav-text">分页组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#条件查询"><span class="nav-number">1.4.3.</span> <span class="nav-text">条件查询</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#活动管理-增加"><span class="nav-number">1.5.</span> <span class="nav-text">活动管理-增加</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#弹出窗口"><span class="nav-number">1.5.1.</span> <span class="nav-text">弹出窗口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编辑表单"><span class="nav-number">1.5.2.</span> <span class="nav-text">编辑表单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下拉选择框"><span class="nav-number">1.5.3.</span> <span class="nav-text">下拉选择框</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提交表单"><span class="nav-number">1.5.4.</span> <span class="nav-text">提交表单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#活动管理-修改"><span class="nav-number">1.5.5.</span> <span class="nav-text">活动管理-修改</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#根据ID加载数据"><span class="nav-number">1.5.5.1.</span> <span class="nav-text">根据ID加载数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#新增窗口表单清空"><span class="nav-number">1.5.5.2.</span> <span class="nav-text">新增窗口表单清空</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#保存修改"><span class="nav-number">1.5.5.3.</span> <span class="nav-text">保存修改</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#消息提示框"><span class="nav-number">1.5.5.4.</span> <span class="nav-text">消息提示框</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#活动管理-删除"><span class="nav-number">1.5.6.</span> <span class="nav-text">活动管理-删除</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#EasyMock接口"><span class="nav-number">1.5.6.1.</span> <span class="nav-text">EasyMock接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现"><span class="nav-number">1.5.6.2.</span> <span class="nav-text">代码实现</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">huangsm</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
