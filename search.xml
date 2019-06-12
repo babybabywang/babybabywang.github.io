@@ -76,8 +76,8 @@
         <category>nginx</category>
       </categories>
       <tags>
-        <tag>webpack</tag>
         <tag>docker</tag>
+        <tag>webpack</tag>
         <tag>nginx</tag>
       </tags>
   </entry>
@@ -115,11 +115,11 @@
         <category>ElementUI</category>
       </categories>
       <tags>
+        <tag>easymock</tag>
         <tag>ElementUI</tag>
         <tag>vue</tag>
         <tag>nodejs</tag>
         <tag>npm</tag>
-        <tag>easymock</tag>
       </tags>
   </entry>
   <entry>
@@ -157,8 +157,8 @@
         <category>Node.js</category>
       </categories>
       <tags>
-        <tag>Node.js</tag>
         <tag>webpack</tag>
+        <tag>Node.js</tag>
         <tag>NPM</tag>
       </tags>
   </entry>
@@ -243,8 +243,8 @@
       <tags>
         <tag>SpringBoot</tag>
         <tag>SpringCloud</tag>
-        <tag>Hystrix</tag>
         <tag>Feign</tag>
+        <tag>Hystrix</tag>
       </tags>
   </entry>
   <entry>
@@ -257,9 +257,9 @@
       <tags>
         <tag>SpringBoot</tag>
         <tag>SpringCloud</tag>
-        <tag>Feign</tag>
         <tag>Dubbo</tag>
         <tag>Eureka</tag>
+        <tag>Feign</tag>
         <tag>rabbion</tag>
         <tag>负载均衡</tag>
       </tags>
@@ -331,9 +331,9 @@
         <category>elasticsearch</category>
       </categories>
       <tags>
-        <tag>head</tag>
         <tag>docker</tag>
         <tag>elasticsearch</tag>
+        <tag>head</tag>
         <tag>IK</tag>
         <tag>docker系统优化</tag>
       </tags>
@@ -359,9 +359,9 @@
         <category>ElasticSearch</category>
       </categories>
       <tags>
-        <tag>ElasticSearch</tag>
-        <tag>head</tag>
         <tag>SpringData</tag>
+        <tag>head</tag>
+        <tag>ElasticSearch</tag>
         <tag>IK分词器</tag>
       </tags>
   </entry>
@@ -373,9 +373,9 @@
         <category>MongoDB</category>
       </categories>
       <tags>
-        <tag>SpringData</tag>
         <tag>MongoDB</tag>
         <tag>NOSQL</tag>
+        <tag>SpringData</tag>
       </tags>
   </entry>
   <entry>
